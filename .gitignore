@@ -1,5 +1,9 @@
 *
+!*\src
+!*\libs
+!*\data
 !.gitignore
+!*.bin
 !*.c
 !*.h
 !*.md
