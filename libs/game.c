@@ -27,3 +27,8 @@ int adicionaNovosQuadrados(int matrix[SIZE][SIZE]) {
     * 2 = 90% de chance
     * 4 = 10% de chance*/
 }
+
+int restart(int matrix[SIZE][SIZE]) {
+    /*Quando a pessoa perder, dá a opção de dar
+    restart no jogo, recomeçando completamente o jogo.*/
+}
