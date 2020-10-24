@@ -7,13 +7,14 @@
 */
 
 #include <stdio.h>
-#include "../libs/controles.h"
-#include "../libs/interface.h"
-#include "../libs/game.h"
+#include "controles.h"
+#include "interface.h"
+#include "game.h"
 
 int main(void) {
     int matrix[SIZE][SIZE];
-    extern int score, high_score;
+    int score;
+    extern int high_score;
     /*Aqui no main a gente chama todas as funções importantes, e também
     faz o switch case dos controles e demais coisas do gênero*/
     return 0;

@@ -4,13 +4,13 @@
 int high_score;
 
 void novoHighScore(int score) {
-    FILE *score_data = fopen("../data/high_score.bin", "w");
+    FILE *score_data = fopen("high_score.bin", "w");
     fwrite(&score, sizeof(int), 1, score_data);
     fclose(score_data);
 }
 
 void getHighScore(void) {
-    FILE *score_data = fopen("../data/high_score.bin", "r");
+    FILE *score_data = fopen("high_score.bin", "r");
     fread(&high_score, sizeof(int), 1, score_data);
     fclose(score_data);
 }
