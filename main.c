@@ -7,14 +7,54 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "controles.h"
 #include "interface.h"
 #include "game.h"
 
 int main(void) {
-    int matrix[SIZE][SIZE];
-    int score;
-    extern int high_score;
+    int matrix[SIZE][SIZE],i,j;
+    extern int score, high_score;
+    char controle;
+    novoHighScore(100);
+
+    printf("Entre com os numeros\n");
+    for(i=0;i<SIZE;i++){
+        for(j=0;j<SIZE;j++){
+        	scanf(" %d", &matrix[i][j]);
+        }
+
+    }
+    
+    while(1){    
+    	printInterface(matrix);
+    	controle = getchar();
+    	switch(controle){
+    		case 'w':
+                paraCima(matrix);
+    		    break;
+
+    		case 'a':
+    		    paraEsquerda(matrix);
+    		    break;
+
+    		case 's':
+    		    paraBaixo(matrix);
+    		    break;
+    		case 'd':
+    		    paraDireita(matrix);
+    		    break;
+
+    		case '0':
+                exit(0);
+
+    		default:
+    		    break;
+    	}
+    }
+
+
+    
     /*Aqui no main a gente chama todas as funções importantes, e também
     faz o switch case dos controles e demais coisas do gênero*/
     return 0;
