@@ -35,7 +35,14 @@ int main(void) {
 
     while (1) {
         printInterface(matrix);
-        controle = getchar();
+        #if defined(_WIN32) || defined(_WIN64)
+            controle=getch();
+        #endif
+
+        #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
+            controle = getchar();
+        #endif    
+        
         switch (controle){
             case 'w': case 'W':
                 paraCima(matrix);
