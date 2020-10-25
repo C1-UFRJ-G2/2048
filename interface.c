@@ -14,6 +14,19 @@ void clear(void) {
 }
 
 void printInterface(int matrix[SIZE][SIZE]) {
+    int i,j;
+    getHighScore();
+    clear();
+    printf("\nScore:%d          High Score: %d   Aperte 0 para sair\n\n", score, high_score);
+    for(i=0;i<SIZE;i++){
+        for(j=0;j<SIZE;j++){
+            
+            printf("    %4d", matrix[i][j]);
+            
+        }
+        printf("\n\n");
+    }
+    
     /*Deve imprimir a interface do jogo, incluindo o score atual do jogador e o
     high score do jogo, que estará guardado em int high_score", a interface
     fica a escolha de quem criar essa função, mas lembre-se que ela tem ser um grid
