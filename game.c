@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "game.h"
 
-int high_score,score=0;
+int high_score, score = 0;
 
 void novoHighScore(int score) {
     FILE *score_data = fopen("high_score.bin", "w");

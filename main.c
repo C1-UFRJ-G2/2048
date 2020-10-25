@@ -6,6 +6,14 @@
 * Esse software é licenciado sob licença MIT.
 */
 
+#if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
+    #include <ncurses.h>
+#endif
+
+#if defined(_WIN32) || defined(_WIN64)
+    #include <conio.h>
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "controles.h"
@@ -19,42 +27,40 @@ int main(void) {
     novoHighScore(100);
 
     printf("Entre com os numeros\n");
-    for(i=0;i<SIZE;i++){
-        for(j=0;j<SIZE;j++){
-        	scanf(" %d", &matrix[i][j]);
+    for (i = 0; i < SIZE; i++) {
+        for (j = 0; j < SIZE; j++) {
+            scanf(" %d", &matrix[i][j]);
         }
-
     }
-    
-    while(1){    
-    	printInterface(matrix);
-    	controle = getchar();
-    	switch(controle){
-    		case 'w':
+
+    while (1) {
+        printInterface(matrix);
+        controle = getchar();
+        switch (controle){
+            case 'w': case 'W':
                 paraCima(matrix);
-    		    break;
+            break;
 
-    		case 'a':
-    		    paraEsquerda(matrix);
-    		    break;
+            case 'a': case 'A':
+                paraEsquerda(matrix);
+            break;
 
-    		case 's':
-    		    paraBaixo(matrix);
-    		    break;
-    		case 'd':
-    		    paraDireita(matrix);
-    		    break;
+            case 's': case 'S':
+                paraBaixo(matrix);
+            break;
 
-    		case '0':
+            case 'd': case 'D':
+                paraDireita(matrix);
+            break;
+
+            case '0':
                 exit(0);
-
-    		default:
-    		    break;
-    	}
+            
+            default:
+                break;
+        }
     }
 
-
-    
     /*Aqui no main a gente chama todas as funções importantes, e também
     faz o switch case dos controles e demais coisas do gênero*/
     return 0;

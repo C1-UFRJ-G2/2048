@@ -9,5 +9,4 @@ void paraEsquerda(int matrix[SIZE][SIZE]);
 void paraDireita(int matrix[SIZE][SIZE]);
 void giraMatriz(int matrix[SIZE][SIZE]);
 
-
 #endif

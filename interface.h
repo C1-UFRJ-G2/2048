@@ -8,5 +8,4 @@
 void clear(void);
 void printInterface(int matrix[SIZE][SIZE]);
 
-
 #endif

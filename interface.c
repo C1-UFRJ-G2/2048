@@ -14,17 +14,16 @@ void clear(void) {
 }
 
 void printInterface(int matrix[SIZE][SIZE]) {
-    int i,j;
+    int i, j;
     getHighScore();
     clear();
-    printf("\nScore:%d          High Score: %d   Aperte 0 para sair\n\n", score, high_score);
-    for(i=0;i<SIZE;i++){
-        for(j=0;j<SIZE;j++){
-            
-            printf("    %4d", matrix[i][j]);
-            
+    printf("\nScore: %d  High Score: %d   Aperte 0 para sair\n\n", score, high_score);
+
+    for (i = 0; i < SIZE; i++) {
+        for (j = 0; j < SIZE; j++) {
+            printf("|%4.d", matrix[i][j]);
         }
-        printf("\n\n");
+        printf("|\n");
     }
     
     /*Deve imprimir a interface do jogo, incluindo o score atual do jogador e o
