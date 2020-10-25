@@ -19,42 +19,40 @@ int main(void) {
     novoHighScore(100);
 
     printf("Entre com os numeros\n");
-    for(i=0;i<SIZE;i++){
-        for(j=0;j<SIZE;j++){
-        	scanf(" %d", &matrix[i][j]);
+    for (i = 0; i < SIZE; i++) {
+        for (j = 0; j < SIZE; j++) {
+            scanf(" %d", &matrix[i][j]);
         }
-
     }
-    
-    while(1){    
-    	printInterface(matrix);
-    	controle = getchar();
-    	switch(controle){
-    		case 'w':
+
+    while (1) {
+        printInterface(matrix);
+        controle = getchar();
+        switch(controle){
+            case 'w':
                 paraCima(matrix);
-    		    break;
+            break;
 
-    		case 'a':
-    		    paraEsquerda(matrix);
-    		    break;
+            case 'a':
+                paraEsquerda(matrix);
+            break;
 
-    		case 's':
-    		    paraBaixo(matrix);
-    		    break;
-    		case 'd':
-    		    paraDireita(matrix);
-    		    break;
+            case 's':
+                paraBaixo(matrix);
+            break;
 
-    		case '0':
+            case 'd':
+                paraDireita(matrix);
+            break;
+
+            case '0':
                 exit(0);
-
-    		default:
-    		    break;
-    	}
+            
+            default:
+                break;
+        }
     }
 
-
-    
     /*Aqui no main a gente chama todas as funções importantes, e também
     faz o switch case dos controles e demais coisas do gênero*/
     return 0;
