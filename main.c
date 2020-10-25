@@ -28,20 +28,20 @@ int main(void) {
     while (1) {
         printInterface(matrix);
         controle = getchar();
-        switch(controle){
-            case 'w':
+        switch (controle){
+            case 'w': case 'W':
                 paraCima(matrix);
             break;
 
-            case 'a':
+            case 'a': case 'A':
                 paraEsquerda(matrix);
             break;
 
-            case 's':
+            case 's': case 'S':
                 paraBaixo(matrix);
             break;
 
-            case 'd':
+            case 'd': case 'D':
                 paraDireita(matrix);
             break;
 

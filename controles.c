@@ -48,7 +48,7 @@ void paraBaixo(int matrix[SIZE][SIZE]){
     for (k = 0; k < SIZE - 1; k++) {
         for (i = SIZE - 2; i >= 0; i--) {
 			for (j = 0; j < SIZE; j++) {
-				if(matrix[i+1][j] == 0) {
+				if (matrix[i+1][j] == 0) {
 				matrix[i+1][j] = matrix[i][j];
 					matrix[i][j] = 0;
 				}
@@ -59,7 +59,7 @@ void paraBaixo(int matrix[SIZE][SIZE]){
     /*junta*/
 	for (i = SIZE - 1; i > 0; i--) {
 		for (j = 0; j < SIZE; j++) {
-			if(matrix[i][j] == matrix[i-1][j]) {
+			if (matrix[i][j] == matrix[i-1][j]) {
 				matrix[i][j] += matrix[i-1][j];
 				matrix[i-1][j]=0;
 				score += matrix[i][j];
@@ -70,7 +70,7 @@ void paraBaixo(int matrix[SIZE][SIZE]){
     /*mexe pra baixo de novo por causa dos novos valores*/
 	for (i = SIZE - 2; i >= 0; i--) {
 		for (j = 0; j < SIZE; j++) { 
-			if(matrix[i+1][j] == 0) {
+			if (matrix[i+1][j] == 0) {
 				matrix[i+1][j]=matrix[i][j];
 				matrix[i][j]=0;
 			}
@@ -86,7 +86,7 @@ void paraEsquerda(int matrix[SIZE][SIZE]) {
     for (k = 0; k < SIZE - 1; k++) {
         for (j = 1; j < SIZE; j++) {
 			for (i = 0; i < SIZE; i++) {
-				if(matrix[i][j-1] == 0) {
+				if (matrix[i][j-1] == 0) {
 					matrix[i][j-1]=matrix[i][j];
 					matrix[i][j]=0;
 				}
