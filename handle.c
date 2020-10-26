@@ -10,11 +10,11 @@ void killHandle(int sig) {
     puts("Voce realmente deseja sair? [S/n]");
 
     while (ignore) {
-        #if defined(_WIN32) || defined(_WIN64)
+        /*#if defined(_WIN32) || defined(_WIN64)*/
             char input = getch();
-        #else
+        /*#else
             char input = getchar();
-        #endif
+        #endif*/
 
         switch (input) {
             case 's': case 'S':
