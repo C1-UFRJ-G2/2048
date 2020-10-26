@@ -10,7 +10,7 @@ clean:
 	make build && ./jogo && rm jogo
 
 teste:
-	gcc -lncurses -o teste teste.c && ./teste && rm teste
+	gcc -lncurses -o teste teste.c
 
 TARGET=-o jogo
 
