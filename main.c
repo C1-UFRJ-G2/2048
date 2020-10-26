@@ -42,18 +42,26 @@ int main(void) {
         switch (controle){
             case 'w': case 'W':
                 paraCima(matrix);
+                adicionaNovosValores(matrix);
+                adicionaNovosValores(matrix);
             break;
 
             case 'a': case 'A':
                 paraEsquerda(matrix);
+                adicionaNovosValores(matrix);
+                adicionaNovosValores(matrix);
             break;
 
             case 's': case 'S':
                 paraBaixo(matrix);
+                adicionaNovosValores(matrix);
+                adicionaNovosValores(matrix);
             break;
 
             case 'd': case 'D':
                 paraDireita(matrix);
+                adicionaNovosValores(matrix);
+                adicionaNovosValores(matrix);
             break;
 
             case '0':
@@ -66,7 +74,6 @@ int main(void) {
             default:
                 break;
         }
-        adicionaNovosValores(matrix);
     }
 
     fimDeJogo();
