@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include "game.h"
 
-void clear(void);
+void clean(void);
 void printInterface(int matrix[SIZE][SIZE]);
 
 #endif

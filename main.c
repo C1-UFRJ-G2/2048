@@ -6,12 +6,10 @@
 * Esse software é licenciado sob licença MIT.
 */
 
-#if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
-    #include <ncurses.h>
-#endif
-
 #if defined(_WIN32) || defined(_WIN64)
     #include <conio.h>
+#else
+    #include <ncurses.h>
 #endif
 
 #include <stdio.h>
@@ -21,54 +19,63 @@
 #include "game.h"
 
 int main(void) {
-    int matrix[SIZE][SIZE],i,j;
+    int matrix[SIZE][SIZE], i, j;
     extern int score, high_score;
     char controle;
-    novoHighScore(100);
 
-    printf("Entre com os numeros\n");
-    for (i = 0; i < SIZE; i++) {
-        for (j = 0; j < SIZE; j++) {
-            scanf(" %d", &matrix[i][j]);
-        }
-    }
+    // printf("Entre com os numeros\n");
+    // for (i = 0; i < SIZE; i++) {
+    //     for (j = 0; j < SIZE; j++) {
+    //         scanf(" %d", &matrix[i][j]);
+    //     }
+    // }
 
-    while (1) {
+    novoJogo(matrix);
+    while (oJogoContinua(matrix)) {
         printInterface(matrix);
         #if defined(_WIN32) || defined(_WIN64)
-            controle=getch();
-        #endif
-
-        #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
+            controle = getch();
+        #else
             controle = getchar();
-        #endif    
+        #endif
         
         switch (controle){
             case 'w': case 'W':
                 paraCima(matrix);
+                adicionaNovosValores(matrix);
+                adicionaNovosValores(matrix);
             break;
 
             case 'a': case 'A':
                 paraEsquerda(matrix);
+                adicionaNovosValores(matrix);
+                adicionaNovosValores(matrix);
             break;
 
             case 's': case 'S':
                 paraBaixo(matrix);
+                adicionaNovosValores(matrix);
+                adicionaNovosValores(matrix);
             break;
 
             case 'd': case 'D':
                 paraDireita(matrix);
+                adicionaNovosValores(matrix);
+                adicionaNovosValores(matrix);
             break;
 
             case '0':
+                fimDeJogo();
                 exit(0);
             
+            case EOF:
+                fprintf(stderr, "Código de Erro 1: Usuário entrou EOF pelo teclado\n");
+                exit(1);
             default:
                 break;
         }
     }
 
-    /*Aqui no main a gente chama todas as funções importantes, e também
-    faz o switch case dos controles e demais coisas do gênero*/
+    fimDeJogo();
     return 0;
 }
