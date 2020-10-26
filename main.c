@@ -19,8 +19,7 @@
 #include "game.h"
 
 int main(void) {
-    int matrix[SIZE][SIZE], i, j;
-    extern int score, high_score;
+    int matrix[SIZE][SIZE];
     char controle;
 
     // printf("Entre com os numeros\n");
