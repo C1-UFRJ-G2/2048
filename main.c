@@ -19,7 +19,7 @@
 #include "game.h"
 
 int main(void) {
-    int matrix[SIZE][SIZE],i,j;
+    int matrix[SIZE][SIZE], i, j;
     extern int score, high_score;
     char controle;
 
