@@ -41,23 +41,23 @@ int main(void) {
         
         switch (controle){
             case 'w': case 'W':
-                paraCima(matrix);
-                adicionaNovoValor(matrix);
+                if (paraCima(matrix))
+                    adicionaNovoValor(matrix);
             break;
 
             case 'a': case 'A':
-                paraEsquerda(matrix);
-                adicionaNovoValor(matrix);
+                if (paraEsquerda(matrix))
+                    adicionaNovoValor(matrix);
             break;
 
             case 's': case 'S':
-                paraBaixo(matrix);
-                adicionaNovoValor(matrix);
+                if (paraBaixo(matrix))
+                    adicionaNovoValor(matrix);
             break;
 
             case 'd': case 'D':
-                paraDireita(matrix);
-                adicionaNovoValor(matrix);
+                if (paraDireita(matrix))
+                    adicionaNovoValor(matrix);
             break;
 
             case '0':

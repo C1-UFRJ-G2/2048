@@ -28,7 +28,7 @@ int oJogoContinua(int matrix[SIZE][SIZE]) {
     for (i = 0; i < SIZE; i++) {
         for (j = 0; j < SIZE; j++) {
             if (matrix[i][j] == 2048) {
-                puts("                            Você venceu!");
+                puts("                            Voce venceu!");
                 return 0;
             }
         }
@@ -51,7 +51,7 @@ int oJogoContinua(int matrix[SIZE][SIZE]) {
     }
 
     printInterface(matrix);
-    puts("                            Você perdeu!");
+    puts("                            Voce perdeu!");
     return restart(matrix);
 }
 
