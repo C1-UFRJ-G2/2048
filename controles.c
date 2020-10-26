@@ -154,5 +154,3 @@ void paraDireita(int matrix[SIZE][SIZE]) {
 		}
 	}
 }
-
-void giraMatriz(int matrix[SIZE][SIZE]);
