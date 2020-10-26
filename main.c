@@ -22,7 +22,7 @@ int main(void) {
     int matrix[SIZE][SIZE],i,j;
     extern int score, high_score;
     char controle;
-    novoHighScore(100);
+    // novoHighScore(100);
 
     // printf("Entre com os numeros\n");
     // for (i = 0; i < SIZE; i++) {
