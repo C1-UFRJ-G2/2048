@@ -12,28 +12,10 @@
 
 void killHandle(int sig) {
     int ignore = 0;
-    signal(sig, SIG_IGN);
-    printw("Voce realmente deseja sair? [S/n]\n");
-
-    while (!ignore) {
-        char input = getch();
-
-        switch (input) {
-            case 's': case 'S':
-                fimDeJogo();
-                exit(0);
-
-            case 'n': case 'N':
-                ignore = 1;
-                signal(SIGINT, killHandle);
-                signal(SIGTSTP, killHandle);
-                
-            break;
-
-            default:
-                break;
-        }
-    }
+    char input;
+    fimDeJogo();
+    system("echo -e \"Obrigado por jogar!\n\"");
+    exit(0);
 }
 
 void verificaTamanhoDoTerminal(void) {
