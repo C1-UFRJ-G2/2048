@@ -22,7 +22,7 @@ void verificaTamanhoDoTerminal(void) {
     if (x < MIN_X_SIZE || y < MIN_Y_SIZE) {
         fimDeJogo();
         system("clear");
-        system("echo -e \"Aumente o tamanho do seu emulador terminal e tente novamente!\n\"");
+        system("echo -e \"Aumente o tamanho do seu emulador de terminal e tente novamente!\n\"");
         exit(1);
     }
 }
