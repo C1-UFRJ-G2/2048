@@ -7,8 +7,8 @@
 int high_score, score = 0;
 
 void novoHighScore(void) {
-    high_score = score;
     FILE *score_data = fopen("high_score.bin", "w");
+    high_score = score;
     fwrite(&score, sizeof(int), 1, score_data);
     fclose(score_data);
 }
@@ -87,11 +87,11 @@ void fimDeJogo(void) {
 }
 
 void novoJogo(int matrix[SIZE][SIZE]) {
+    int i, j;
     score = 0;
     initscr();
     noecho();
     curs_set(0);
-    int i, j;
     for (i = 0; i < SIZE; i++) {
         for (j = 0; j < SIZE; j++) {
             matrix[i][j] = 0;
