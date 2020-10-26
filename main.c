@@ -57,6 +57,7 @@ int main(void) {
             break;
 
             case '0':
+                fimDeJogo();
                 exit(0);
             
             case EOF:

@@ -79,10 +79,12 @@ void adicionaNovosValores(int matrix[SIZE][SIZE]) {
 
 void fimDeJogo(void) {
     if (score > high_score) novoHighScore(score);
+    printf("\e[?25h");
     clean();
 }
 
 void novoJogo(int matrix[SIZE][SIZE]) {
+    printf("\e[?25l");
     int i, j;
     for (i = 0; i < SIZE; i++) {
         for (j = 0; j < SIZE; j++) {
