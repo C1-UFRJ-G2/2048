@@ -64,7 +64,6 @@ int main(void) {
                 break;
         }
         adicionaNovosValores(matrix);
-        adicionaNovosValores(matrix);
     }
 
     fimDeJogo();

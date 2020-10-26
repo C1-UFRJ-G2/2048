@@ -3,7 +3,7 @@
 
 #define SIZE 4
 
-void restart(int matrix[SIZE][SIZE]);
+int restart(int matrix[SIZE][SIZE]);
 void novoJogo(int matrix[SIZE][SIZE]);
 void fimDeJogo(void);
 void novoHighScore(int score);
