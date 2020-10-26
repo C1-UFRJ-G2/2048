@@ -31,7 +31,8 @@ int main(void) {
         }
     }
 
-    while (1) {
+    // novoJogo(matrix);
+    while (oJogoContinua(matrix)) {
         printInterface(matrix);
         #if defined(_WIN32) || defined(_WIN64)
             controle = getch();
@@ -57,7 +58,7 @@ int main(void) {
             break;
 
             case '0':
-                exit(0);
+                fimDeJogo();
             
             default:
                 break;
