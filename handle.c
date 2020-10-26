@@ -9,9 +9,9 @@
 #define MIN_Y_SIZE 34
 
 void killHandle(void) {
+    fimDeJogo();
     system("clear");
     system("echo -e \"Obrigado por jogar!\n\"");
-    fimDeJogo();
     exit(0);
 }
 
@@ -20,9 +20,9 @@ void verificaTamanhoDoTerminal(void) {
     getmaxyx(stdscr, x, y);
     printf("%d %d\n", x, y);
     if (x < MIN_X_SIZE || y < MIN_Y_SIZE) {
+        fimDeJogo();
         system("clear");
         system("echo -e \"Aumente o tamanho do seu emulador terminal e tente novamente!\n\"");
-        fimDeJogo();
         exit(1);
     }
 }
