@@ -6,11 +6,12 @@
 * Esse software é licenciado sob licença MIT.
 */
 
-#if defined(_WIN32) || defined(_WIN64)
+
+/*#if defined(_WIN32) || defined(_WIN64)*/
     #include <conio.h>
-#else
+/*#else
     #include <ncurses.h>
-#endif
+#endif*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -35,11 +36,11 @@ int main(void) {
     novoJogo(matrix);
     while (oJogoContinua(matrix)) {
         printInterface(matrix);
-        #if defined(_WIN32) || defined(_WIN64)
+        /*#if defined(_WIN32) || defined(_WIN64)*/
             controle = getch();
-        #else
+       /* #else
             controle = getchar();
-        #endif
+        #endif*/
         
         switch (controle){
             case 'w': case 'W':
