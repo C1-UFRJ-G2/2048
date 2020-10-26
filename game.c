@@ -101,5 +101,5 @@ int restart(int matrix[SIZE][SIZE]) {
         fimDeJogo();
         novoJogo(matrix);
         return 1;
-    } sleep(1000);
+    }
 }

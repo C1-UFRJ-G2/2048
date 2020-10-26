@@ -58,8 +58,11 @@ int main(void) {
             break;
 
             case '0':
-                fimDeJogo();
+                exit(0);
             
+            case EOF:
+                fprintf(stderr, "Código de Erro 1: Usuário entrou EOF pelo teclado\n");
+                exit(1);
             default:
                 break;
         }
