@@ -4,7 +4,7 @@
 #include "interface.h"
 #include "handle.h"
 
-void stopHandle(int sig) {
+void killHandle(int sig) {
     int ignore = 1;
     signal(sig, SIG_IGN);
     puts("Voce realmente deseja sair? [S/n]");
@@ -23,7 +23,7 @@ void stopHandle(int sig) {
 
             case 'n': case 'N':
                 ignore = 0;
-                signal(SIGINT, stopHandle);
+                signal(SIGINT, killHandle);
 
             default:
                 break;

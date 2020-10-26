@@ -23,7 +23,7 @@
 int main(void) {
     int matrix[SIZE][SIZE];
     char controle;
-    signal(SIGINT, stopHandle);
+    signal(SIGINT, killHandle);
     // printf("Entre com os numeros\n");
     // for (i = 0; i < SIZE; i++) {
     //     for (j = 0; j < SIZE; j++) {
