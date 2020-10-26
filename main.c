@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
+#include <locale.h>
 #include "controles.h"
 #include "interface.h"
 #include "game.h"
@@ -18,6 +19,9 @@
 int main(void) {
     static int matrix[SIZE][SIZE];
     char controle;
+
+    setlocale(LC_ALL, ""); /* Para poder imprimir os caracteres acentuados corretamente */
+
     signal(SIGINT, killHandle);
     signal(SIGTSTP, killHandle);
 
