@@ -2,7 +2,7 @@
 * 2048
 * Autores: Eduardo, Jorge e Matheus;
 * DREs: 120047675, 120063312, 120023786;
-* Testado no Windows 10 e GNU/Linux 5.9.1-arch1-1 e 4.19.101-2-lts;
+* Testado no GNU/Linux 5.9.1-arch1-1 e 4.19.101-2-lts;
 * Esse software é licenciado sob licença MIT.
 */
 
@@ -26,11 +26,7 @@ int main(void) {
 
     while (oJogoContinua(matrix)) {
         printInterface(matrix);
-        #if defined(_WIN32) || defined(_WIN64)
-            controle = getch();
-        #else
-            controle = getch();
-        #endif
+        controle = getch();
 
         refresh();
         switch (controle){
