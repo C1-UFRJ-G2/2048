@@ -5,7 +5,7 @@
 
 int high_score, score = 0;
 
-void novoHighScore(int score) {
+void novoHighScore(void) {
     high_score = score;
     FILE *score_data = fopen("high_score.bin", "w");
     fwrite(&score, sizeof(int), 1, score_data);
@@ -18,7 +18,7 @@ void getHighScore(void) {
         fread(&high_score, sizeof(int), 1, score_data);
         fclose(score_data);
     } else {
-        novoHighScore(0);
+        novoHighScore();
     }
 }
 
@@ -78,7 +78,7 @@ void adicionaNovoValor(int matrix[SIZE][SIZE]) {
 }
 
 void fimDeJogo(void) {
-    if (score > high_score) novoHighScore(score);
+    if (score > high_score) novoHighScore();
     printf("\e[?25h");
     clean();
 }

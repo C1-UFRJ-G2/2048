@@ -6,7 +6,7 @@
 int restart(int matrix[SIZE][SIZE]);
 void novoJogo(int matrix[SIZE][SIZE]);
 void fimDeJogo(void);
-void novoHighScore(int score);
+void novoHighScore(void);
 void getHighScore(void);
 void adicionaNovoValor(int matrix[SIZE][SIZE]);
 int oJogoContinua(int matrix[SIZE][SIZE]);
