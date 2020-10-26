@@ -9,19 +9,21 @@
 #if defined(_WIN32) || defined(_WIN64)
     #include <conio.h>
 #else
-    #include <ncurses.h>
+    //#include <ncurses.h>
 #endif
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <signal.h>
 #include "controles.h"
 #include "interface.h"
 #include "game.h"
+#include "handle.h"
 
 int main(void) {
     int matrix[SIZE][SIZE];
     char controle;
-
+    signal(SIGINT, stopHandle);
     // printf("Entre com os numeros\n");
     // for (i = 0; i < SIZE; i++) {
     //     for (j = 0; j < SIZE; j++) {
