@@ -1,10 +1,8 @@
-#include <string.h>
 #include <stdio.h>
 #include <ncurses.h>
 #include <signal.h>
 #include <stdlib.h>
 #include "game.h"
-#include "interface.h"
 #include "handle.h"
 
 #define MIN_X_SIZE 10
@@ -12,7 +10,6 @@
 
 void killHandle(int sig) {
     int ignore = 0;
-    char input;
     fimDeJogo();
     system("echo -e \"Obrigado por jogar!\n\"");
     exit(0);
