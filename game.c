@@ -14,8 +14,12 @@ void novoHighScore(int score) {
 
 void getHighScore(void) {
     FILE *score_data = fopen("high_score.bin", "r");
-    fread(&high_score, sizeof(int), 1, score_data);
-    fclose(score_data);
+    if (score_data) {
+        fread(&high_score, sizeof(int), 1, score_data);
+        fclose(score_data);
+    } else {
+        novoHighScore(0);
+    }
 }
 
 int oJogoContinua(int matrix[SIZE][SIZE]) {
