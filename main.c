@@ -22,12 +22,6 @@ int main(void) {
     char controle;
     signal(SIGINT, killHandle);
     signal(SIGTSTP, killHandle);
-    // printf("Entre com os numeros\n");
-    // for (i = 0; i < SIZE; i++) {
-    //     for (j = 0; j < SIZE; j++) {
-    //         scanf(" %d", &matrix[i][j]);
-    //     }
-    // }
 
     novoJogo(matrix);
     while (oJogoContinua(matrix)) {
@@ -64,9 +58,6 @@ int main(void) {
                 fimDeJogo();
                 exit(0);
             
-            case EOF:
-                fprintf(stderr, "Código de Erro 1: Usuário entrou EOF pelo teclado\n");
-                exit(1);
             default:
                 break;
         }
