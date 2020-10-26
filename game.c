@@ -29,16 +29,15 @@ int oJogoContinua(int matrix[SIZE][SIZE]) {
                 puts("Pressione 1 para jogar novamente ou qualquer tecla para sair");
                 char input = getch();
                 if (input == '1') {
-                    fimDeJogo();
-                    novoJogo(matrix);
+                    restart(matrix);
                     return 1;
                 } else exit(0);
             }
         }
     }
 
-    for (i = 0; i < SIZE; i++) {
-        for (j = 0; j < SIZE; j++) {
+    for (i = 1; i < SIZE - 1; i++) {
+        for (j = 1; j < SIZE - 1; j++) {
             if (matrix[i][j] == 0) 
                 return 1;
             else if (matrix[i][j] == matrix[i][j + 1] || matrix[i][j] == matrix[i][j - 1])
@@ -50,24 +49,51 @@ int oJogoContinua(int matrix[SIZE][SIZE]) {
 
     puts("                            Você perdeu!");
     puts("Pressione 1 para jogar novamente ou qualquer tecla para sair");
-    char input;
-    scanf("%c", &input);
+    char input =  getch();
     if (input == '1') {
-        novoJogo(matrix);
+        restart(matrix);
         return 1;
-    } else fimDeJogo();
+    } else return 0;
 }
 
-void adicionaNovosQuadrados(int matrix[SIZE][SIZE]) {
-    /*Adiciona novos quadrados
-    * 2 = 90% de chance
-    * 4 = 10% de chance*/
+void adicionaNovosValores(int matrix[SIZE][SIZE]) {
+    int i, j, counter = 0,
+    **vazios = (int **) malloc(sizeof(int*) * SIZE * SIZE);
+
+    for (i = 0; i < SIZE; i++) {
+		for (j = 0; j < SIZE; j++) {
+			if (matrix[i][j] == 0) {
+				*(vazios + counter) = &matrix[i][j];
+				counter++;
+			}
+		}
+	}
+
+    if (counter > 0) {
+        int i = rand() % counter;
+        int valor = (rand() % 100) > 9 ? 2 : 4;
+        **(vazios + i) = valor;
+    }
 }
 
 void fimDeJogo(void) {
     if (score > high_score) novoHighScore(score);
-    exit(0);
+    clean();
 }
 
 void novoJogo(int matrix[SIZE][SIZE]) {
+    int i, j;
+    for (i = 0; i < SIZE; i++) {
+        for (j = 0; j < SIZE; j++) {
+            matrix[i][j] = 0;
+        }
+    }
+
+    adicionaNovosValores(matrix);
+    adicionaNovosValores(matrix);
+}
+
+void restart(int matrix[SIZE][SIZE]) {
+    fimDeJogo();
+    novoJogo(matrix);
 }

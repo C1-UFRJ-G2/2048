@@ -24,14 +24,14 @@ int main(void) {
     char controle;
     novoHighScore(100);
 
-    printf("Entre com os numeros\n");
-    for (i = 0; i < SIZE; i++) {
-        for (j = 0; j < SIZE; j++) {
-            scanf(" %d", &matrix[i][j]);
-        }
-    }
+    // printf("Entre com os numeros\n");
+    // for (i = 0; i < SIZE; i++) {
+    //     for (j = 0; j < SIZE; j++) {
+    //         scanf(" %d", &matrix[i][j]);
+    //     }
+    // }
 
-    // novoJogo(matrix);
+    novoJogo(matrix);
     while (oJogoContinua(matrix)) {
         printInterface(matrix);
         #if defined(_WIN32) || defined(_WIN64)
@@ -63,9 +63,10 @@ int main(void) {
             default:
                 break;
         }
+        adicionaNovosValores(matrix);
+        adicionaNovosValores(matrix);
     }
 
-    /*Aqui no main a gente chama todas as funções importantes, e também
-    faz o switch case dos controles e demais coisas do gênero*/
+    fimDeJogo();
     return 0;
 }
