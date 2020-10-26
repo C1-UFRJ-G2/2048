@@ -55,7 +55,7 @@ int oJogoContinua(int matrix[SIZE][SIZE]) {
     return restart(matrix);
 }
 
-void adicionaNovosValores(int matrix[SIZE][SIZE]) {
+void adicionaNovoValor(int matrix[SIZE][SIZE]) {
     int i, j, counter = 0,
     **vazios = (int **) malloc(sizeof(int *) * SIZE * SIZE);
 
@@ -92,20 +92,32 @@ void novoJogo(int matrix[SIZE][SIZE]) {
         }
     }
 
-    adicionaNovosValores(matrix);
-    adicionaNovosValores(matrix);
+    adicionaNovoValor(matrix);
+    adicionaNovoValor(matrix);
 }
 
 int restart(int matrix[SIZE][SIZE]) {
-    puts("Pressione 1 para jogar novamente ou qualquer tecla para sair");
-    #if defined(_WIN32) || defined(_WIN64)
-        char input = getch();
-    #else
-        char input = getchar();
-    #endif
-    if (input == '1') {
-        fimDeJogo();
-        novoJogo(matrix);
-        return 1;
-    } else return 0;
+    puts("Pressione r para jogar novamente ou q para sair");
+    sleep(1000);
+    
+    while (1) {
+        #if defined(_WIN32) || defined(_WIN64)
+            char input = getch();
+        #else
+            char input = getchar();
+        #endif
+
+        switch (input) {
+            case 'r': case 'R':
+                fimDeJogo();
+                novoJogo(matrix);
+                return 1;
+
+            case 'q': case 'Q':
+                return 0;
+
+            default:
+                break;
+        }
+    }
 }
