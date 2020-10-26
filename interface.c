@@ -8,6 +8,17 @@
 
 extern int score, high_score;
 
+<<<<<<< HEAD
+=======
+void clean(void) {
+    /*#if defined(_WIN32) || defined(_WIN64)*/
+        system("cls");
+    /*#else
+        system("clear");
+    #endif*/
+}
+
+>>>>>>> origin/main
 void printInterface(int matrix[SIZE][SIZE]) {
     int i, j;
 

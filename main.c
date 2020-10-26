@@ -6,7 +6,17 @@
 * Esse software é licenciado sob licença MIT.
 */
 
+<<<<<<< HEAD
 #include <ncurses.h>
+=======
+
+/*#if defined(_WIN32) || defined(_WIN64)*/
+    #include <conio.h>
+/*#else
+    #include <ncurses.h>
+#endif*/
+
+>>>>>>> origin/main
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
@@ -30,9 +40,18 @@ int main(void) {
 
     while (oJogoContinua(matrix)) {
         printInterface(matrix);
+<<<<<<< HEAD
         controle = getch();
 
         refresh();
+=======
+        /*#if defined(_WIN32) || defined(_WIN64)*/
+            controle = getch();
+       /* #else
+            controle = getchar();
+        #endif*/
+        
+>>>>>>> origin/main
         switch (controle){
             case 'w': case 'W':
                 if (paraCima(matrix))
