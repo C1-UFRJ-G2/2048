@@ -6,11 +6,11 @@
 extern int score, high_score;
 
 void clean(void) {
-    #if defined(_WIN32) || defined(_WIN64)
+    /*#if defined(_WIN32) || defined(_WIN64)*/
         system("cls");
-    #else 
+    /*#else
         system("clear");
-    #endif
+    #endif*/
 }
 
 void printInterface(int matrix[SIZE][SIZE]) {
