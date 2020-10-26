@@ -24,23 +24,29 @@ int oJogoContinua(int matrix[SIZE][SIZE]) {
     for (i = 0; i < SIZE; i++) {
         for (j = 0; j < SIZE; j++) {
             if (matrix[i][j] == 2048) {
-                clean();
                 puts("                            Você venceu!");
+                return 0;
             }
         }
     }
 
-    for (i = 1; i < SIZE - 1; i++) {
-        for (j = 1; j < SIZE - 1; j++) {
+    for (i = 0; i < SIZE; i++) {
+        for (j = 0; j < SIZE; j++) {
             if (matrix[i][j] == 0) 
                 return 1;
-            else if (matrix[i][j] == matrix[i][j + 1] || matrix[i][j] == matrix[i][j - 1])
-                return 1;
-            else if ( matrix[i][j] == matrix[i + 1][j] || matrix[i][j] == matrix[i - 1][j])
-                return 1;
+            if (i > 0 && i < SIZE - 1) {
+                if (matrix[i][j] == matrix[i + 1][j] || matrix[i][j] == matrix[i - 1][j])
+                    return 1;
+            }
+
+            if (j > 0 && j < SIZE - 1) {
+                if (matrix[i][j] == matrix[i][j + 1] || matrix[i][j] == matrix[i][j - 1])
+                    return 1;
+            }
         }
     }
 
+    printInterface(matrix);
     puts("                            Você perdeu!");
     return restart(matrix);
 }
@@ -95,5 +101,5 @@ int restart(int matrix[SIZE][SIZE]) {
         fimDeJogo();
         novoJogo(matrix);
         return 1;
-    } else return 0;
+    } sleep(1000);
 }
