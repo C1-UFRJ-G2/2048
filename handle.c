@@ -7,14 +7,10 @@
 void killHandle(int sig) {
     int ignore = 1;
     signal(sig, SIG_IGN);
-    puts("Voce realmente deseja sair? [S/n]");
+    printw("Voce realmente deseja sair? [S/n]\n");
 
     while (ignore) {
-        #if defined(_WIN32) || defined(_WIN64)
-            char input = getch();
-        #else
-            char input = getchar();
-        #endif
+        char input = getch();
 
         switch (input) {
             case 's': case 'S':

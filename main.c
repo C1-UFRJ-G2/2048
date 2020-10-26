@@ -6,12 +6,7 @@
 * Esse software é licenciado sob licença MIT.
 */
 
-#if defined(_WIN32) || defined(_WIN64)
-    #include <conio.h>
-#else
-    #include <ncurses.h>
-#endif
-
+#include <ncurses.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
@@ -21,6 +16,8 @@
 #include "handle.h"
 
 int main(void) {
+    initscr();
+    noecho();
     int matrix[SIZE][SIZE];
     char controle;
     signal(SIGINT, killHandle);
@@ -38,9 +35,10 @@ int main(void) {
         #if defined(_WIN32) || defined(_WIN64)
             controle = getch();
         #else
-            controle = getchar();
+            controle = getch();
         #endif
-        
+
+        refresh();
         switch (controle){
             case 'w': case 'W':
                 if (paraCima(matrix))

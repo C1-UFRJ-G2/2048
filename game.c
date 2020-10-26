@@ -28,7 +28,7 @@ int oJogoContinua(int matrix[SIZE][SIZE]) {
     for (i = 0; i < SIZE; i++) {
         for (j = 0; j < SIZE; j++) {
             if (matrix[i][j] == 2048) {
-                puts("                            Voce venceu!");
+                printw("Voce venceu!\n");
                 return 0;
             }
         }
@@ -51,7 +51,7 @@ int oJogoContinua(int matrix[SIZE][SIZE]) {
     }
 
     printInterface(matrix);
-    puts("                            Voce perdeu!");
+    printw("Voce perdeu!\n");
     return restart(matrix);
 }
 
@@ -79,12 +79,14 @@ void adicionaNovoValor(int matrix[SIZE][SIZE]) {
 
 void fimDeJogo(void) {
     if (score > high_score) novoHighScore();
-    printf("\e[?25h");
-    clean();
+    curs_set(1);
+    clear();
+    echo();
+    endwin();
 }
 
 void novoJogo(int matrix[SIZE][SIZE]) {
-    printf("\e[?25l");
+    curs_set(0);
     int i, j;
     for (i = 0; i < SIZE; i++) {
         for (j = 0; j < SIZE; j++) {
@@ -97,7 +99,7 @@ void novoJogo(int matrix[SIZE][SIZE]) {
 }
 
 int restart(int matrix[SIZE][SIZE]) {
-    puts("Pressione r para jogar novamente ou q para sair");
+    printw("Pressione r para jogar novamente ou q para sair\n");
     sleep(1000);
     
     while (1) {
