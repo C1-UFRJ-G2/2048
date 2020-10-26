@@ -24,6 +24,8 @@ void killHandle(int sig) {
             case 'n': case 'N':
                 ignore = 0;
                 signal(SIGINT, killHandle);
+                signal(SIGTSTP, killHandle);
+            break;
 
             default:
                 break;
