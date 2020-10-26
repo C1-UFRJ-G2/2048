@@ -3,20 +3,18 @@
 
 extern int score, high_score;
 
-void clear(void) {
-    #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
-        system("clear");
-    #endif
-
+void clean(void) {
     #if defined(_WIN32) || defined(_WIN64)
         system("cls");
+    #else 
+        system("clear");
     #endif
 }
 
 void printInterface(int matrix[SIZE][SIZE]) {
     int i, j;
     getHighScore();
-    clear();
+    clean();
     printf("\nScore: %d  High Score: %d   Aperte 0 para sair\n\n", score, high_score);
 
     for (i = 0; i < SIZE; i++) {

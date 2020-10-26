@@ -6,12 +6,10 @@
 * Esse software é licenciado sob licença MIT.
 */
 
-#if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
-    #include <ncurses.h>
-#endif
-
 #if defined(_WIN32) || defined(_WIN64)
     #include <conio.h>
+#else
+    #include <ncurses.h>
 #endif
 
 #include <stdio.h>
@@ -36,12 +34,10 @@ int main(void) {
     while (1) {
         printInterface(matrix);
         #if defined(_WIN32) || defined(_WIN64)
-            controle=getch();
-        #endif
-
-        #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
+            controle = getch();
+        #else
             controle = getchar();
-        #endif    
+        #endif
         
         switch (controle){
             case 'w': case 'W':
