@@ -9,7 +9,7 @@
 #if defined(_WIN32) || defined(_WIN64)
     #include <conio.h>
 #else
-    //#include <ncurses.h>
+    #include <ncurses.h>
 #endif
 
 #include <stdio.h>
