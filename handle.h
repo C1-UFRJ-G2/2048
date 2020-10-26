@@ -2,5 +2,6 @@
 #define HANDLE_H
 
 void killHandle(int sig);
+void verificaTamanhoDoTerminal(void);
 
 #endif

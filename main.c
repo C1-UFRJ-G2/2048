@@ -16,14 +16,14 @@
 #include "handle.h"
 
 int main(void) {
-    initscr();
-    noecho();
-    int matrix[SIZE][SIZE];
+    static int matrix[SIZE][SIZE];
     char controle;
     signal(SIGINT, killHandle);
     signal(SIGTSTP, killHandle);
 
     novoJogo(matrix);
+    verificaTamanhoDoTerminal();
+
     while (oJogoContinua(matrix)) {
         printInterface(matrix);
         #if defined(_WIN32) || defined(_WIN64)

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ncurses.h>
 #include "game.h"
 #include "interface.h"
 
@@ -14,11 +15,11 @@ void novoHighScore(void) {
 
 void getHighScore(void) {
     FILE *score_data = fopen("high_score.bin", "r");
-    if (score_data) {
+    if (!score_data) {
+        novoHighScore();
+    } else {
         fread(&high_score, sizeof(int), 1, score_data);
         fclose(score_data);
-    } else {
-        novoHighScore();
     }
 }
 
@@ -29,7 +30,7 @@ int oJogoContinua(int matrix[SIZE][SIZE]) {
         for (j = 0; j < SIZE; j++) {
             if (matrix[i][j] == 2048) {
                 printw("Voce venceu!\n");
-                return 0;
+                return restart(matrix);
             }
         }
     }
@@ -50,7 +51,6 @@ int oJogoContinua(int matrix[SIZE][SIZE]) {
         }
     }
 
-    printInterface(matrix);
     printw("Voce perdeu!\n");
     return restart(matrix);
 }
@@ -75,6 +75,7 @@ void adicionaNovoValor(int matrix[SIZE][SIZE]) {
     }
 
     free(vazios);
+    printInterface(matrix);
 }
 
 void fimDeJogo(void) {
@@ -86,6 +87,9 @@ void fimDeJogo(void) {
 }
 
 void novoJogo(int matrix[SIZE][SIZE]) {
+    score = 0;
+    initscr();
+    noecho();
     curs_set(0);
     int i, j;
     for (i = 0; i < SIZE; i++) {
@@ -94,20 +98,16 @@ void novoJogo(int matrix[SIZE][SIZE]) {
         }
     }
 
+    getHighScore();
     adicionaNovoValor(matrix);
     adicionaNovoValor(matrix);
 }
 
 int restart(int matrix[SIZE][SIZE]) {
     printw("Pressione r para jogar novamente ou q para sair\n");
-    sleep(1000);
     
     while (1) {
-        #if defined(_WIN32) || defined(_WIN64)
-            char input = getch();
-        #else
-            char input = getchar();
-        #endif
+        char input = getch();
 
         switch (input) {
             case 'r': case 'R':
