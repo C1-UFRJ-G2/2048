@@ -1,24 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ncurses.h>
 #include "game.h"
 #include "interface.h"
 
 int high_score, score = 0;
 
 void novoHighScore(void) {
-    high_score = score;
     FILE *score_data = fopen("high_score.bin", "w");
+    high_score = score;
     fwrite(&score, sizeof(int), 1, score_data);
     fclose(score_data);
 }
 
 void getHighScore(void) {
     FILE *score_data = fopen("high_score.bin", "r");
-    if (score_data) {
+    if (!score_data) {
+        novoHighScore();
+    } else {
         fread(&high_score, sizeof(int), 1, score_data);
         fclose(score_data);
-    } else {
-        novoHighScore();
     }
 }
 
@@ -28,8 +29,8 @@ int oJogoContinua(int matrix[SIZE][SIZE]) {
     for (i = 0; i < SIZE; i++) {
         for (j = 0; j < SIZE; j++) {
             if (matrix[i][j] == 2048) {
-                puts("                            Voce venceu!");
-                return 0;
+                printw("Você venceu!\n");
+                return restart(matrix);
             }
         }
     }
@@ -50,8 +51,7 @@ int oJogoContinua(int matrix[SIZE][SIZE]) {
         }
     }
 
-    printInterface(matrix);
-    puts("                            Voce perdeu!");
+    printw("Você perdeu!\n");
     return restart(matrix);
 }
 
@@ -75,37 +75,39 @@ void adicionaNovoValor(int matrix[SIZE][SIZE]) {
     }
 
     free(vazios);
+    printInterface(matrix);
 }
 
 void fimDeJogo(void) {
     if (score > high_score) novoHighScore();
-    printf("\e[?25h");
-    clean();
+    curs_set(1);
+    clear();
+    echo();
+    endwin();
 }
 
 void novoJogo(int matrix[SIZE][SIZE]) {
-    printf("\e[?25l");
     int i, j;
+    score = 0;
+    initscr();
+    noecho();
+    curs_set(0);
     for (i = 0; i < SIZE; i++) {
         for (j = 0; j < SIZE; j++) {
             matrix[i][j] = 0;
         }
     }
 
+    getHighScore();
     adicionaNovoValor(matrix);
     adicionaNovoValor(matrix);
 }
 
 int restart(int matrix[SIZE][SIZE]) {
-    puts("Pressione r para jogar novamente ou q para sair");
-    sleep(1000);
+    printw("Pressione r para jogar novamente ou q para sair\n");
     
     while (1) {
-        #if defined(_WIN32) || defined(_WIN64)
-            char input = getch();
-        #else
-            char input = getchar();
-        #endif
+        char input = getch();
 
         switch (input) {
             case 'r': case 'R':
