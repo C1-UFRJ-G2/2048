@@ -1,5 +1,4 @@
 #include "controles.h"
-#include "game.h"
 
 extern int score;
 

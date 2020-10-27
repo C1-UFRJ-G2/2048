@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <ncurses.h>
 #include <signal.h>
 #include <stdlib.h>
@@ -18,7 +17,6 @@ void killHandle(void) {
 void verificaTamanhoDoTerminal(void) {
     int x, y;
     getmaxyx(stdscr, x, y);
-    printf("%d %d\n", x, y);
     if (x < MIN_X_SIZE || y < MIN_Y_SIZE) {
         fimDeJogo();
         system("clear");

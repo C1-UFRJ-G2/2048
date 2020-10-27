@@ -1,10 +1,7 @@
-#include <signal.h>
 #include <ncurses.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include "interface.h"
 #include "game.h"
-#include "handle.h"
 
 extern int score, high_score;
 
