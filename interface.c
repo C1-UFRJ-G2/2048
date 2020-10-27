@@ -6,23 +6,25 @@
 extern int score, high_score;
 
 void iniciaInterface(void) {
-    initscr();
-    noecho();
-    curs_set(0);
+    initscr(); /*Inicia a "tela do jogo"*/
+    noecho(); /*Esconde os valores que o usuário está entrando dele*/
+    curs_set(0); /*Desativa o cursor do terminal do usuário*/
 }
 
 void encerraInterface(void) {
-    curs_set(1);
-    clear();
-    echo();
-    endwin();
+    curs_set(1); /*Reativa o cursor do terminal do usuário*/
+    clear(); /*Limpa a tela*/
+    echo(); /*Volta a mostrar os inputs do usuário*/
+    endwin(); /*Encerra a tela iniciada no começo*/
 }
 
+/*Função responsável por imprimir a interface de jogo*/
 void printInterface(int matrix[SIZE][SIZE]) {
     int i, j;
-    refresh();
-    clear();
+    refresh(); /*Reinicia a tela para expor novos valores*/
+    clear(); /*Limpa a tela*/
 
+    /*Verifica se a há suporte a cores no terminal e formata a interface de acordo com esse fato*/
     if (has_colors()) {
         printw("Score: %5.d High Score: %5.d\n\n", score, high_score);
 

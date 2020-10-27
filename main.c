@@ -22,12 +22,16 @@ int main(void) {
 
     setlocale(LC_ALL, ""); /* Para poder imprimir os caracteres acentuados corretamente */
 
+    /* Impede que o jogo pare sem desativar a interface, desativando o comportamento
+    padrão do Ctrl + C e do Ctrl + Z*/
     signal(SIGINT, killHandle);
     signal(SIGTSTP, killHandle);
 
     novoJogo(matrix);
     verificaTamanhoDoTerminal();
 
+    /*Enquanto a função oJogoContinua continuar retornando true, imprime a interface de jogo
+    e recebe input de novos movimentos*/
     while (oJogoContinua(matrix)) {
         printInterface(matrix);
         controle = getch();
@@ -54,13 +58,15 @@ int main(void) {
 
             case '0':
                 fimDeJogo();
-                exit(0);
+                return 0;
             
             default:
                 break;
         }
     }
 
+    /*Encerra o processo do jogo caso não tenha sido feito anteriormente, 
+    geralmente o programa será encerrado antes de chegar aqui*/
     fimDeJogo();
     return 0;
 }
