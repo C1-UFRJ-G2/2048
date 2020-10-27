@@ -8,6 +8,19 @@
 
 extern int score, high_score;
 
+void iniciaInterface(void) {
+    initscr();
+    noecho();
+    curs_set(0);
+}
+
+void encerraInterface(void) {
+    curs_set(1);
+    clear();
+    echo();
+    endwin();
+}
+
 void printInterface(int matrix[SIZE][SIZE]) {
     int i, j;
 
