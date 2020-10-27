@@ -20,6 +20,7 @@ C_FILES=main.c      \
 		handle.c
 
 C_FLAGS=-lncurses  \
+		-O2		   \
         -W         \
         -Wall      \
         -ansi      \
