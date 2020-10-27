@@ -80,18 +80,13 @@ void adicionaNovoValor(int matrix[SIZE][SIZE]) {
 
 void fimDeJogo(void) {
     if (score > high_score) novoHighScore();
-    curs_set(1);
-    clear();
-    echo();
-    endwin();
+    encerraInterface();
 }
 
 void novoJogo(int matrix[SIZE][SIZE]) {
     int i, j;
     score = 0;
-    initscr();
-    noecho();
-    curs_set(0);
+    iniciaInterface();
     for (i = 0; i < SIZE; i++) {
         for (j = 0; j < SIZE; j++) {
             matrix[i][j] = 0;

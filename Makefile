@@ -1,18 +1,15 @@
 default: build
 
 build:
-	$(CC) $(C_FLAGS) $(C_FILES) $(TARGET)
+	@$(CC) $(C_FLAGS) $(C_FILES) -o $(TARGET)
 
 run:
-	make build && ./jogo
+	@[ -f $(TARGET) ] && ./$(TARGET) || echo "Realize o build do jogo primeiramente"
 
 clean:
-	make build && ./jogo && rm jogo
+	@[ -f $(TARGET) ] && rm $(TARGET) || exit
 
-teste:
-	gcc -lncurses -o teste teste.c && ./teste && rm teste
-
-TARGET=-o jogo
+TARGET=2048
 
 CC=gcc
 
