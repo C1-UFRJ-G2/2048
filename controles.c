@@ -1,13 +1,13 @@
 #include "controles.h"
 
-extern int score;
+extern unsigned int score;
 
 /*Os nomes são bem auto-explicativos, só faz ai*/
-int paraCima(int matrix[SIZE][SIZE]) {
+short int paraCima(short int matrix[SIZE][SIZE]) {
 /* sobe de cima p baixo, junta de cima pra baixo e sobe:
 joga todo mundo pra cima começando pela linha 1, o debaixo vira zero;
 avalia pela linha 0 ate 2 (inclusive) se o de baixo é igual, aí multiplica e o de baixo vira 0;*/
-    int i, j, k, movimentos = 0;  /*3*3*4 + 3*4+ 3*4=60 vezes*/
+    short int i, j, k, movimentos = 0;  /*3*3*4 + 3*4+ 3*4=60 vezes*/
     for (k = 0; k < SIZE - 1; k++) {
         for (i = 1; i < SIZE; i++) {
 			for (j = 0;j < SIZE; j++) {
@@ -45,8 +45,8 @@ avalia pela linha 0 ate 2 (inclusive) se o de baixo é igual, aí multiplica e o
 	return movimentos;
 }
 
-int paraBaixo(int matrix[SIZE][SIZE]) {
-	int i, j, k, movimentos = 0; /*3*3*4 + 3*4+ 3*4=60 vezes*/
+short int paraBaixo(short int matrix[SIZE][SIZE]) {
+	short int i, j, k, movimentos = 0; /*3*3*4 + 3*4+ 3*4=60 vezes*/
     for (k = 0; k < SIZE - 1; k++) {
         for (i = SIZE - 2; i >= 0; i--) {
 			for (j = 0; j < SIZE; j++) {
@@ -85,8 +85,8 @@ int paraBaixo(int matrix[SIZE][SIZE]) {
 	return movimentos;
 }
 
-int paraEsquerda(int matrix[SIZE][SIZE]) {
-	int i, j, k, movimentos = 0; /*3*3*4 + 3*4+ 3*4=60 vezes*/
+short int paraEsquerda(short int matrix[SIZE][SIZE]) {
+	short int i, j, k, movimentos = 0; /*3*3*4 + 3*4+ 3*4=60 vezes*/
     for (k = 0; k < SIZE - 1; k++) {
         for (j = 1; j < SIZE; j++) {
 			for (i = 0; i < SIZE; i++) {
@@ -124,9 +124,9 @@ int paraEsquerda(int matrix[SIZE][SIZE]) {
 	return movimentos;
 }
 
-int paraDireita(int matrix[SIZE][SIZE]) {
+short int paraDireita(short int matrix[SIZE][SIZE]) {
 	/*anda p direita da direita p esquerda, junta da direita p esquerda e anda:*/
-	int i, j, k, movimentos = 0;	/*3*3*4 + 3*4+ 3*4=60 vezes*/
+	short int i, j, k, movimentos = 0;	/*3*3*4 + 3*4+ 3*4=60 vezes*/
     for (k = 0; k < SIZE - 1; k++) {
         for (j = SIZE - 2; j >= 0; j--) {
 			for (i = 0; i < SIZE; i++) {

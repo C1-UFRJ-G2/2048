@@ -4,7 +4,7 @@
 #include "game.h"
 #include "interface.h"
 
-int high_score, score = 0;
+unsigned int high_score, score = 0;
 
 void novoHighScore(void) {
     FILE *score_data = fopen("high_score.bin", "w");
@@ -23,8 +23,8 @@ void getHighScore(void) {
     }
 }
 
-int oJogoContinua(int matrix[SIZE][SIZE]) {
-    int i, j;
+short int oJogoContinua(short int matrix[SIZE][SIZE]) {
+    short int i, j;
 
     for (i = 0; i < SIZE; i++) {
         for (j = 0; j < SIZE; j++) {
@@ -58,9 +58,9 @@ int oJogoContinua(int matrix[SIZE][SIZE]) {
 /*Percorre a matriz equivalente ao grid do jogo, encontrando os valores iguais a zero
 e guardando seus endereços, depois disso, adiciona um novo valor (90% de chance de ser
 um 2 e 10% de ser um 4) em um valor igual a zero aleatório*/
-void adicionaNovoValor(int matrix[SIZE][SIZE]) {
-    int i, j, counter = 0,
-    **vazios = (int **) malloc(sizeof(int *) * SIZE * SIZE);
+void adicionaNovoValor(short int matrix[SIZE][SIZE]) {
+    short int i, j, counter = 0,
+    **vazios = (short int **) malloc(sizeof(short int *) * SIZE * SIZE);
 
     for (i = 0; i < SIZE; i++) {
 		for (j = 0; j < SIZE; j++) {
@@ -73,8 +73,7 @@ void adicionaNovoValor(int matrix[SIZE][SIZE]) {
 
     if (counter > 0) {
         int i = rand() % counter;
-        int valor = (rand() % 100) >= 9 ? 2 : 4;
-        *vazios[i] = valor;
+        *vazios[i] = (rand() % 100) >= 9 ? 2 : 4;
     }
 
     free(vazios);
@@ -89,8 +88,8 @@ void fimDeJogo(void) {
 
 /*Inicia a interface, pega o high_score guardado e adiciona os valores
 do inicio do jogo*/
-void novoJogo(int matrix[SIZE][SIZE]) {
-    int i, j;
+void novoJogo(short int matrix[SIZE][SIZE]) {
+    short int i, j;
     score = 0;
     iniciaInterface();
     for (i = 0; i < SIZE; i++) {
@@ -108,7 +107,7 @@ void novoJogo(int matrix[SIZE][SIZE]) {
 sim, ou realizando os processos de fim de jogo caso não, geralmente é chamado pela função
 oJogoContinua(), que recebe o valor que ela retornará o valor que ela retornar, entre 0 e 1,
 definindo se o jogo continuará ou não*/
-int restart(int matrix[SIZE][SIZE]) {
+short int restart(short int matrix[SIZE][SIZE]) {
     printw("Pressione r para jogar novamente ou q para sair\n");
     
     while (1) {

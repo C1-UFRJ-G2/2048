@@ -21,7 +21,7 @@ void killHandle(void) {
 encerrando o jogo e o pedindo para aumentar seu terminal e tentar novamente caso
 não*/
 void verificaTamanhoDoTerminal(void) {
-    int x, y;
+    short int x, y;
     getmaxyx(stdscr, x, y);
     if (x < MIN_X_SIZE || y < MIN_Y_SIZE) {
         fimDeJogo();

@@ -17,8 +17,8 @@
 #include "handle.h"
 
 int main(void) {
-    static int matrix[SIZE][SIZE];
-    char controle;
+    static short int matrix[SIZE][SIZE];
+    short int controle;
 
     setlocale(LC_ALL, ""); /* Para poder imprimir os caracteres acentuados corretamente */
 
@@ -35,7 +35,7 @@ int main(void) {
     while (oJogoContinua(matrix)) {
         printInterface(matrix);
         controle = getch();
-        switch (controle){
+        switch (controle) {
             case 'w': case 'W':
                 if (paraCima(matrix))
                     adicionaNovoValor(matrix);

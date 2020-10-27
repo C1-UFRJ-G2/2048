@@ -3,9 +3,9 @@
 
 #define SIZE 4
 
-int paraCima(int matrix[SIZE][SIZE]);
-int paraBaixo(int matrix[SIZE][SIZE]);
-int paraEsquerda(int matrix[SIZE][SIZE]);
-int paraDireita(int matrix[SIZE][SIZE]);
+short int paraCima(short int matrix[SIZE][SIZE]);
+short int paraBaixo(short int matrix[SIZE][SIZE]);
+short int paraEsquerda(short int matrix[SIZE][SIZE]);
+short int paraDireita(short int matrix[SIZE][SIZE]);
 
 #endif

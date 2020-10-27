@@ -5,6 +5,6 @@
 
 void iniciaInterface(void);
 void encerraInterface(void);
-void printInterface(int matrix[SIZE][SIZE]);
+void printInterface(short int matrix[SIZE][SIZE]);
 
 #endif
