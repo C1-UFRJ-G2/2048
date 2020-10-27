@@ -31,7 +31,6 @@ int main(void) {
     while (oJogoContinua(matrix)) {
         printInterface(matrix);
         controle = getch();
-        refresh();
         switch (controle){
             case 'w': case 'W':
                 if (paraCima(matrix))

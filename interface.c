@@ -23,7 +23,7 @@ void encerraInterface(void) {
 
 void printInterface(int matrix[SIZE][SIZE]) {
     int i, j;
-
+    refresh();
     clear();
     printw("Score: %5.d High Score: %5.d\n\n", score, high_score);
 
