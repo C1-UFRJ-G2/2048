@@ -9,6 +9,7 @@
 
 unsigned int high_score, score = 0;
 
+/*Sobrescreve o antigo high_score caso ele tenha sido superado*/
 void novoHighScore(void) {
     FILE *score_data = fopen("high_score.bin", "w");
     high_score = score;
@@ -16,9 +17,13 @@ void novoHighScore(void) {
     fclose(score_data);
 }
 
+/*Recebe o high_score caso ele esteja definido para algum valor, se não,
+cria o arquivo high_score.bin para guardar o high_score e coloca 0 como
+atual high_score*/
 void getHighScore(void) {
     FILE *score_data = fopen("high_score.bin", "r");
     if (!score_data) {
+        fclose(score_data);
         novoHighScore();
     } else {
         fread(&high_score, sizeof(int), 1, score_data);
@@ -26,6 +31,8 @@ void getHighScore(void) {
     }
 }
 
+/*Retorna true ou false caso o jogo deva começar, iniciando o processo
+de restart caso o jogador tenha perdido ou ganhado*/
 short int oJogoContinua(short int matrix[SIZE][SIZE]) {
     short int i, j;
 

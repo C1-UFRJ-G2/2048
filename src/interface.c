@@ -26,7 +26,7 @@ void printInterface(short int matrix[SIZE][SIZE]) {
 
     refresh(); /*Reinicia a tela para expor novos valores*/
     clear(); /*Limpa a tela*/
-    /*Verifica se a há suporte a cores no terminal e formata a interface de acordo com esse fato*/
+
     printw("Score: %5.d\nHigh Score: %5.d\n", score, high_score);
     printw("%s\n", topo);
     for (i = 0; i < SIZE; i++) {

@@ -64,8 +64,10 @@ int main(void) {
                 break;
         }
     }
+
     /*Encerra o processo do jogo caso não tenha sido feito anteriormente, 
-    geralmente o programa será encerrado antes de chegar aqui*/
+    geralmente o programa só chegara aqui caso o jogador vença ou perca e escolha
+    sair no lugar de reiniciar o jogo*/
     fimDeJogo();
     return 0;
 }
