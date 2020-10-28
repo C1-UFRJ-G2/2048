@@ -11,7 +11,7 @@ unsigned int high_score, score = 0;
 
 /*Sobrescreve o antigo high_score caso ele tenha sido superado*/
 void novoHighScore(void) {
-    FILE *score_data = fopen("high_score.bin", "w");
+    FILE *score_data = fopen("high_score.bin", "wb");
     high_score = score;
     fwrite(&score, sizeof(int), 1, score_data);
     fclose(score_data);
@@ -21,9 +21,8 @@ void novoHighScore(void) {
 cria o arquivo high_score.bin para guardar o high_score e coloca 0 como
 atual high_score*/
 void getHighScore(void) {
-    FILE *score_data = fopen("high_score.bin", "r");
+    FILE *score_data = fopen("high_score.bin", "rb");
     if (!score_data) {
-        fclose(score_data);
         novoHighScore();
     } else {
         fread(&high_score, sizeof(int), 1, score_data);
