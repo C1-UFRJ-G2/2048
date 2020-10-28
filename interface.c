@@ -25,6 +25,7 @@ void printInterface(short int matrix[SIZE][SIZE]) {
     clear(); /*Limpa a tela*/
 
     /*Verifica se a há suporte a cores no terminal e formata a interface de acordo com esse fato*/
+
     if (has_colors()) {
         printw("Score: %5.d High Score: %5.d\n\n", score, high_score);
 
