@@ -2,10 +2,6 @@
 #include <ncurses.h>
 
 int main(void) {
-    int x, y;
-    initscr();
-    getmaxyx(stdscr, x, y);
-    endwin();
-    printf("%d %d\n", x, y);
+    printf("%d\n", rand() % 10);
     return 0;
 }

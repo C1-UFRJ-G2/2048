@@ -71,7 +71,7 @@ void adicionaNovoValor(short int matrix[SIZE][SIZE]) {
 
     if (counter > 0) {
         int i = rand() % counter;
-        *vazios[i] = (rand() % 100) >= 9 ? 2 : 4;
+        *vazios[i] = (rand() % 100) > 9 ? 2 : 4;
     }
 
     free(vazios);
