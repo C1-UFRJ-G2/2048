@@ -151,7 +151,6 @@ short int paraDireita(short int matrix[SIZE][SIZE]) {
 		}
     }
     /*mexe pra direita de novo por causa dos novos valores*/
-    /*for (k=0;k<3;k++) {*/
 	if (movimentos > 0) {
 		for (j = SIZE - 2; j >= 0; j--) {
 			for (i = 0; i < SIZE; i++) {

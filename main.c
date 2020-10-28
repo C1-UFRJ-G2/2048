@@ -36,22 +36,22 @@ int main(void) {
         printInterface(matrix);
         controle = getch();
         switch (controle) {
-            case 'w': case 'W': case KEY_UP:
+            case 'w': case KEY_UP:
                 if (paraCima(matrix))
                     adicionaNovoValor(matrix);
             break;
 
-            case 'a': case 'A': case KEY_LEFT:
+            case 'a': case KEY_LEFT:
                 if (paraEsquerda(matrix))
                     adicionaNovoValor(matrix);
             break;
 
-            case 's': case 'S': case KEY_DOWN:
+            case 's': case KEY_DOWN:
                 if (paraBaixo(matrix))
                     adicionaNovoValor(matrix);
             break;
 
-            case 'd': case 'D': case KEY_RIGHT:
+            case 'd': case KEY_RIGHT:
                 if (paraDireita(matrix))
                     adicionaNovoValor(matrix);
             break;
@@ -59,7 +59,7 @@ int main(void) {
             case '0':
                 fimDeJogo();
                 return 0;
-            
+
             default:
                 break;
         }

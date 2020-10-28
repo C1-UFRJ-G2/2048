@@ -4,8 +4,8 @@
 #include "game.h"
 #include "handle.h"
 
-#define MIN_X_SIZE 10
-#define MIN_Y_SIZE 34
+#define MIN_X_SIZE 15
+#define MIN_Y_SIZE 22
 
 void killHandle(void) {
     fimDeJogo();

@@ -9,6 +9,9 @@ run:
 clean:
 	@[ -f $(TARGET) ] && rm $(TARGET) || exit
 
+teste: 
+	@$(CC) $(C_FLAGS) teste.c -o teste
+
 TARGET=2048
 
 CC=gcc

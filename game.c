@@ -75,7 +75,6 @@ void adicionaNovoValor(short int matrix[SIZE][SIZE]) {
     }
 
     free(vazios);
-    printInterface(matrix);
 }
 
 /*Define o novo high_score caso o jogador o tenha batido e encerra a interface*/
@@ -108,6 +107,7 @@ sim, ou realizando os processos de fim de jogo caso não, geralmente é chamado 
 oJogoContinua(), que recebe o valor que ela retornará o valor que ela retornar, entre 0 e 1,
 definindo se o jogo continuará ou não*/
 short int restart(short int matrix[SIZE][SIZE], int win) {
+    printInterface(matrix);
     move(11, 0);
     clrtoeol();
 
