@@ -4,6 +4,9 @@
 #include "game.h"
 #include "interface.h"
 
+#define VITORIA 1
+#define DERROTA 0
+
 unsigned int high_score, score = 0;
 
 void novoHighScore(void) {
@@ -29,7 +32,7 @@ short int oJogoContinua(short int matrix[SIZE][SIZE]) {
     for (i = 0; i < SIZE; i++) {
         for (j = 0; j < SIZE; j++) {
             if (matrix[i][j] == 2048) {
-                return restart(matrix, 1);
+                return restart(matrix, VITORIA);
             }
         }
     }
@@ -50,7 +53,7 @@ short int oJogoContinua(short int matrix[SIZE][SIZE]) {
         }
     }
 
-    return restart(matrix, 0);
+    return restart(matrix, DERROTA);
 }
 
 /*Percorre a matriz equivalente ao grid do jogo, encontrando os valores iguais a zero
@@ -106,12 +109,12 @@ void novoJogo(short int matrix[SIZE][SIZE]) {
 sim, ou realizando os processos de fim de jogo caso não, geralmente é chamado pela função
 oJogoContinua(), que recebe o valor que ela retornará o valor que ela retornar, entre 0 e 1,
 definindo se o jogo continuará ou não*/
-short int restart(short int matrix[SIZE][SIZE], int win) {
+short int restart(short int matrix[SIZE][SIZE], int status) {
     printInterface(matrix);
     move(11, 0);
     clrtoeol();
 
-    if (win) printw("Você venceu!\n");
+    if (status == VITORIA) printw("Você venceu!\n");
     else printw("Você perdeu!\n");
     printw("Pressione r para jogar novamente ou q para sair\n");
 
