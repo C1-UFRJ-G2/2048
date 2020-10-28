@@ -1,7 +1,5 @@
 *
 !*\src
-!*\libs
-!*\data
 !.gitignore
 !*.c
 !*.h
