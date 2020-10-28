@@ -1,5 +1,5 @@
 # 2048
-Um clone do jogo 2048 feito usando ncurses como projeto final da matéria Computação I
+Uma versão do jogo 2048 feita usando ncurses como projeto final da matéria Computação I
 
 # Tabela de conteúdo
 
