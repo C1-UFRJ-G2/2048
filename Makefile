@@ -13,11 +13,11 @@ TARGET=2048
 
 CC=gcc
 
-C_FILES=main.c      \
-		game.c      \
-		interface.c \
-		controles.c	\
-		handle.c
+C_FILES=src/main.c      \
+		src/game.c      \
+		src/interface.c \
+		src/controles.c	\
+		src/handle.c
 
 C_FLAGS=-lncurses  \
 		-O2		   \
