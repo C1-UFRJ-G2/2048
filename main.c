@@ -64,7 +64,6 @@ int main(void) {
                 break;
         }
     }
-
     /*Encerra o processo do jogo caso não tenha sido feito anteriormente, 
     geralmente o programa será encerrado antes de chegar aqui*/
     fimDeJogo();
