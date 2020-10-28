@@ -13,7 +13,7 @@ Uma versão do jogo 2048 feita usando ncurses como projeto final da matéria Com
 
 # Como Jogar
 
-O jogo consiste em um grid 4x4 e começa com dois valores, podendo cada um ser 2 ou 4, aleatoriamente.Você pode pressionar W para mover todos os valores o máximo possível para cima, S para baixo, A para esquerda ou D para a direita. Se durante o movimento dois valores iguais se tocarem, eles se tornam um só valor equivalente a sua soma. Todo movimento realizado adiciona um novo valor ao grid se houver espaço para tal, estes valores podendo ser 2 ou 4, aleatoriamente. O objetivo do jogo é conseguir um valor igual a 2048 no grid e você perde caso preencha o grid 4x4 e não hajam mais movimentos possíveis
+O jogo consiste em um grid 4x4 e começa com dois valores, podendo cada um ser 2 ou 4, aleatoriamente. Você pode pressionar W para mover todos os valores o máximo possível para cima, S para baixo, A para esquerda ou D para a direita. Se durante o movimento dois valores iguais se tocarem, eles se tornam um só valor equivalente a sua soma. Todo movimento realizado adiciona um novo valor ao grid se houver espaço para tal, estes valores podendo ser 2 ou 4, aleatoriamente. O objetivo do jogo é conseguir um valor igual a 2048 no grid e você perde caso preencha o grid 4x4 e não hajam mais movimentos possíveis
 
 # Dependências
 ```
