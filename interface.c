@@ -17,7 +17,6 @@ void encerraInterface(void) {
     echo(); /*Volta a mostrar os inputs do usuário*/
     endwin(); /*Encerra a tela iniciada no começo*/
 }
-
 /*Função responsável por imprimir a interface de jogo*/
 void printInterface(short int matrix[SIZE][SIZE]) {
     short int i, j;
@@ -38,4 +37,5 @@ void printInterface(short int matrix[SIZE][SIZE]) {
         if (i < SIZE - 1) printw("%s\n", midRow);
     }
     printw("%s\n", bottomRow);
+    printw("Controles: WASD ou direcionais. 0 para sair");
 }

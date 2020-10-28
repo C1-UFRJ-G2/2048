@@ -29,8 +29,7 @@ short int oJogoContinua(short int matrix[SIZE][SIZE]) {
     for (i = 0; i < SIZE; i++) {
         for (j = 0; j < SIZE; j++) {
             if (matrix[i][j] == 2048) {
-                printw("Você venceu!\n");
-                return restart(matrix);
+                return restart(matrix, 1);
             }
         }
     }
@@ -51,8 +50,7 @@ short int oJogoContinua(short int matrix[SIZE][SIZE]) {
         }
     }
 
-    printw("Você perdeu!\n");
-    return restart(matrix);
+    return restart(matrix, 0);
 }
 
 /*Percorre a matriz equivalente ao grid do jogo, encontrando os valores iguais a zero
@@ -84,6 +82,7 @@ void adicionaNovoValor(short int matrix[SIZE][SIZE]) {
 void fimDeJogo(void) {
     if (score > high_score) novoHighScore();
     encerraInterface();
+    keypad(stdscr, 0);
 }
 
 /*Inicia a interface, pega o high_score guardado e adiciona os valores
@@ -98,6 +97,7 @@ void novoJogo(short int matrix[SIZE][SIZE]) {
         }
     }
 
+    keypad(stdscr, 1);
     getHighScore();
     adicionaNovoValor(matrix);
     adicionaNovoValor(matrix);
@@ -107,9 +107,14 @@ void novoJogo(short int matrix[SIZE][SIZE]) {
 sim, ou realizando os processos de fim de jogo caso não, geralmente é chamado pela função
 oJogoContinua(), que recebe o valor que ela retornará o valor que ela retornar, entre 0 e 1,
 definindo se o jogo continuará ou não*/
-short int restart(short int matrix[SIZE][SIZE]) {
+short int restart(short int matrix[SIZE][SIZE], int win) {
+    move(11, 0);
+    clrtoeol();
+
+    if (win) printw("Você venceu!\n");
+    else printw("Você perdeu!\n");
     printw("Pressione r para jogar novamente ou q para sair\n");
-    
+
     while (1) {
         char input = getch();
 
