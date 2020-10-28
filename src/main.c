@@ -18,7 +18,7 @@
 
 int main(void) {
     static short int matrix[SIZE][SIZE];
-    short int controle;
+    short int controle, movimentos;
 
     setlocale(LC_ALL, ""); /* Para poder imprimir os caracteres acentuados corretamente */
 
@@ -36,31 +36,19 @@ int main(void) {
         controle = getch();
         switch (controle) {
             case 'w': case KEY_UP:
-                if (paraCima(matrix)) {
-                    adicionaNovoValor(matrix);
-                    printInterface(matrix);
-                }
+                movimentos = paraCima(matrix);
             break;
 
             case 'a': case KEY_LEFT:
-                if (paraEsquerda(matrix)) {
-                    adicionaNovoValor(matrix);
-                    printInterface(matrix);
-                }
+                movimentos = paraEsquerda(matrix);
             break;
 
             case 's': case KEY_DOWN:
-                if (paraBaixo(matrix)) {
-                    adicionaNovoValor(matrix);
-                    printInterface(matrix);
-                }
+                movimentos = paraBaixo(matrix);
             break;
 
             case 'd': case KEY_RIGHT:
-                if (paraDireita(matrix)) {
-                    adicionaNovoValor(matrix);
-                    printInterface(matrix);
-                }
+                movimentos = paraDireita(matrix);
             break;
 
             case '0':
@@ -68,7 +56,13 @@ int main(void) {
                 return 0;
 
             default:
-                break;
+                movimentos = 0;
+            break;
+        }
+
+        if (movimentos) {
+            adicionaNovoValor(matrix);
+            printInterface(matrix);
         }
     }
 
