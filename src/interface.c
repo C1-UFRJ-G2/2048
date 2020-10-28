@@ -20,22 +20,22 @@ void encerraInterface(void) {
 /*Função responsável por imprimir a interface de jogo*/
 void printInterface(short int matrix[SIZE][SIZE]) {
     short int i, j;
-    static char *topRow =  "╔════╦════╦════╦════╗",
-                *bottomRow = "╚════╩════╩════╩════╝",
-                *midRow = "╠════╬════╬════╬════╣"; 
+    static char *topo =  "╔════╦════╦════╦════╗",
+                *base = "╚════╩════╩════╩════╝",
+                *meio = "╠════╬════╬════╬════╣"; 
 
     refresh(); /*Reinicia a tela para expor novos valores*/
     clear(); /*Limpa a tela*/
     /*Verifica se a há suporte a cores no terminal e formata a interface de acordo com esse fato*/
     printw("Score: %5.d\nHigh Score: %5.d\n", score, high_score);
-    printw("%s\n", topRow);
+    printw("%s\n", topo);
     for (i = 0; i < SIZE; i++) {
         for (j = 0; j < SIZE; j++) {
             printw("║%4.d", matrix[i][j]);
         }
         printw("║\n");
-        if (i < SIZE - 1) printw("%s\n", midRow);
+        if (i < SIZE - 1) printw("%s\n", meio);
     }
-    printw("%s\n", bottomRow);
+    printw("%s\n", base);
     printw("Controles: WASD ou direcionais. 0 para sair");
 }
