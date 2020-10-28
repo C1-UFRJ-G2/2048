@@ -29,31 +29,38 @@ int main(void) {
 
     novoJogo(matrix);
     verificaTamanhoDoTerminal();
-
+    printInterface(matrix);
     /*Enquanto a função oJogoContinua continuar retornando true, imprime a interface de jogo
     e recebe input de novos movimentos*/
     while (oJogoContinua(matrix)) {
-        printInterface(matrix);
         controle = getch();
         switch (controle) {
             case 'w': case KEY_UP:
-                if (paraCima(matrix))
+                if (paraCima(matrix)) {
                     adicionaNovoValor(matrix);
+                    printInterface(matrix);
+                }
             break;
 
             case 'a': case KEY_LEFT:
-                if (paraEsquerda(matrix))
+                if (paraEsquerda(matrix)) {
                     adicionaNovoValor(matrix);
+                    printInterface(matrix);
+                }
             break;
 
             case 's': case KEY_DOWN:
-                if (paraBaixo(matrix))
+                if (paraBaixo(matrix)) {
                     adicionaNovoValor(matrix);
+                    printInterface(matrix);
+                }
             break;
 
             case 'd': case KEY_RIGHT:
-                if (paraDireita(matrix))
+                if (paraDireita(matrix)) {
                     adicionaNovoValor(matrix);
+                    printInterface(matrix);
+                }
             break;
 
             case '0':
