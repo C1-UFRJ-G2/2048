@@ -8,7 +8,8 @@ Um clone do jogo 2048 feito usando ncurses como projeto final da matéria Comput
   - [Debian](#debian-e-derivados)
   - [Arch](#arch-linux-e-derivados)
   - [Fedora](#fedora-e-derivados)
-- [Instalação](#instalação)
+- [Compilação](#compilação)
+- [Execução](#execução)
 
 # Como Jogar
 
@@ -30,9 +31,14 @@ ncurses
 ### Fedora e derivados
  `yum install gcc make ncurses`
 
-# Instalação
+# Compilação
 ```
 git clone https://github.com/C1-UFRJ-G2/2048.git
 cd 2048
 make
 ```
+
+# Execução
+Tendo compilado
+
+`make run` ou `./2048`
