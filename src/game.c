@@ -129,18 +129,18 @@ short int restart(short int matrix[SIZE][SIZE], int status) {
 
     if (status == VITORIA) printw("Você venceu!\n");
     else printw("Você perdeu!\n");
-    printw("Pressione R para jogar novamente ou Q para sair\n");
+    printw("Pressione r para jogar novamente ou q para sair\n");
 
     while (1) {
         char input = getch();
 
         switch (input) {
-            case 'r': case 'R':
+            case 'r':
                 fimDeJogo();
                 novoJogo(matrix);
                 return 1;
 
-            case 'q': case 'Q':
+            case 'q':
                 return 0;
 
             default:
