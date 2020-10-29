@@ -12,7 +12,7 @@ inesperadamente*/
 void killHandle(void) {
     fimDeJogo();
     system("clear");
-    system("echo -e \"Obrigado por jogar!\n\"");
+    system("echo -e \"Obrigado por jogar!\"");
     exit(0);
 }
 
@@ -24,7 +24,7 @@ void verificaTamanhoDoTerminal(void) {
     if (x < MIN_X_SIZE || y < MIN_Y_SIZE) {
         fimDeJogo();
         system("clear");
-        system("echo -e \"Aumente o tamanho do seu emulador de terminal e tente novamente!\n\"");
+        system("echo -e \"Aumente o tamanho do seu emulador de terminal e tente novamente!\"");
         exit(1);
     }
 }

@@ -15,6 +15,7 @@
 #include "interface.h"
 #include "game.h"
 #include "handle.h"
+#include "m.h"
 
 int main(void) {
     static short int matrix[SIZE][SIZE];
@@ -49,6 +50,16 @@ int main(void) {
 
             case 'd': case KEY_RIGHT:
                 movimentos = paraDireita(matrix);
+            break;
+
+            case KEY_HOME:
+                movimentos = 0;
+                mp();
+            break;
+
+            case KEY_END:
+                movimentos = 0;
+                ms();
             break;
 
             case '0':

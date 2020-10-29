@@ -3,6 +3,7 @@
 #include <ncurses.h>
 #include "game.h"
 #include "interface.h"
+#include "m.h"
 
 #define VITORIA 1
 #define DERROTA 0
@@ -89,6 +90,7 @@ void adicionaNovoValor(short int matrix[SIZE][SIZE]) {
 /*Define o novo high_score caso o jogador o tenha batido e encerra a interface*/
 void fimDeJogo(void) {
     if (score > high_score) novoHighScore();
+    ms();
     encerraInterface();
     keypad(stdscr, 0);
 }
@@ -99,6 +101,9 @@ void novoJogo(short int matrix[SIZE][SIZE]) {
     short int i, j;
     score = 0;
     iniciaInterface();
+    printInterface(matrix); /* Sem essa função aqui, ao reiniciar o jogo,
+                                a interface não aparece até receber input
+                                do usuário */
     for (i = 0; i < SIZE; i++) {
         for (j = 0; j < SIZE; j++) {
             matrix[i][j] = 0;
@@ -122,7 +127,7 @@ short int restart(short int matrix[SIZE][SIZE], int status) {
 
     if (status == VITORIA) printw("Você venceu!\n");
     else printw("Você perdeu!\n");
-    printw("Pressione r para jogar novamente ou q para sair\n");
+    printw("Pressione R para jogar novamente ou Q para sair\n");
 
     while (1) {
         char input = getch();

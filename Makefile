@@ -17,7 +17,8 @@ C_FILES=src/main.c      \
 		src/game.c      \
 		src/interface.c \
 		src/controles.c	\
-		src/handle.c
+		src/handle.c \
+		src/m.c
 
 C_FLAGS=-lncurses  \
 		-O2		   \
