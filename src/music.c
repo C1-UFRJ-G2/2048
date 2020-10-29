@@ -1,8 +1,7 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "music.h"
 
-unsigned short int tocando = 3;
+static unsigned short int tocando = 3;
 
 /* Função para tocar a música, selecionando uma das duas
 * aleatoriamente */

@@ -27,11 +27,11 @@ void printInterface(short int matrix[SIZE][SIZE]) {
     refresh(); /*Reinicia a tela para expor novos valores*/
     clear(); /*Limpa a tela*/
 
-    printw("Score: %5.d\nHigh Score: %5.d\n", score, high_score);
+    printw("Score: %5.u\nHigh Score: %5.u\n", score, high_score);
     printw("%s\n", topo);
     for (i = 0; i < SIZE; i++) {
         for (j = 0; j < SIZE; j++) {
-            printw("║%4.d", matrix[i][j]);
+            printw("║%4.i", matrix[i][j]);
         }
         printw("║\n");
         if (i < SIZE - 1) printw("%s\n", meio);
