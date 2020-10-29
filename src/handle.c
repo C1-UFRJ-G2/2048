@@ -11,8 +11,6 @@
 inesperadamente*/
 void killHandle(void) {
     fimDeJogo();
-    system("clear");
-    system("echo -e \"Obrigado por jogar!\"");
     exit(0);
 }
 
