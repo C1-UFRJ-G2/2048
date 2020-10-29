@@ -3,7 +3,7 @@
 #include <ncurses.h>
 #include "game.h"
 #include "interface.h"
-#include "m.h"
+#include "music.h"
 
 #define VITORIA 1
 #define DERROTA 0
@@ -90,7 +90,7 @@ void adicionaNovoValor(short int matrix[SIZE][SIZE]) {
 /*Define o novo high_score caso o jogador o tenha batido e encerra a interface*/
 void fimDeJogo(void) {
     if (score > high_score) novoHighScore();
-    ms();
+    stop();
     encerraInterface();
     keypad(stdscr, 0);
 }

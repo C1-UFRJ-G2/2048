@@ -18,7 +18,7 @@ C_FILES=src/main.c      \
 		src/interface.c \
 		src/controles.c	\
 		src/handle.c \
-		src/m.c
+		src/music.c
 
 C_FLAGS=-lncurses  \
 		-O2		   \

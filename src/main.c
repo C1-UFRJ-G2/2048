@@ -15,7 +15,7 @@
 #include "interface.h"
 #include "game.h"
 #include "handle.h"
-#include "m.h"
+#include "music.h"
 
 int main(void) {
     static short int matrix[SIZE][SIZE];
@@ -35,6 +35,8 @@ int main(void) {
     e recebe input de novos movimentos*/
     while (oJogoContinua(matrix)) {
         controle = getch();
+        movimentos = 0;
+
         switch (controle) {
             case 'w': case KEY_UP:
                 movimentos = paraCima(matrix);
@@ -53,13 +55,11 @@ int main(void) {
             break;
 
             case KEY_HOME:
-                movimentos = 0;
-                mp();
+                play();
             break;
 
             case KEY_END:
-                movimentos = 0;
-                ms();
+                stop();
             break;
 
             case '0':
@@ -67,8 +67,7 @@ int main(void) {
                 return 0;
 
             default:
-                movimentos = 0;
-            break;
+                break;
         }
 
         if (movimentos) {
