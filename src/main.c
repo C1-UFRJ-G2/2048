@@ -30,7 +30,6 @@ int main(void) {
 
     novoJogo(matrix);
     verificaTamanhoDoTerminal();
-    printInterface(matrix);
     /*Enquanto a função oJogoContinua continuar retornando true, imprime a interface de jogo
     e recebe input de novos movimentos*/
     while (oJogoContinua(matrix)) {
