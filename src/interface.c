@@ -3,7 +3,7 @@
 #include "interface.h"
 #include "game.h"
 
-extern int score, high_score;
+extern unsigned int score, high_score;
 
 void iniciaInterface(void) {
     initscr(); /*Inicia a "tela do jogo"*/
@@ -20,9 +20,9 @@ void encerraInterface(void) {
 /*Função responsável por imprimir a interface de jogo*/
 void printInterface(short int matrix[SIZE][SIZE]) {
     short int i, j;
-    static char *topo =  "╔════╦════╦════╦════╗",
-                *base = "╚════╩════╩════╩════╝",
-                *meio = "╠════╬════╬════╬════╣"; 
+    char *topo =  "╔════╦════╦════╦════╗",
+         *base = "╚════╩════╩════╩════╝",
+         *meio = "╠════╬════╬════╬════╣";
 
     refresh(); /*Reinicia a tela para expor novos valores*/
     clear(); /*Limpa a tela*/
