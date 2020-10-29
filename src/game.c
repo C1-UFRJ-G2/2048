@@ -109,7 +109,8 @@ void novoJogo(short int matrix[SIZE][SIZE]) {
             matrix[i][j] = 0;
         }
     }
-
+    /*Desativa o comportamento padrão dos direcionais no terminal, e permite usa-los
+    como controle*/
     keypad(stdscr, 1);
     getHighScore();
     adicionaNovoValor(matrix);
@@ -122,8 +123,8 @@ oJogoContinua(), que recebe o valor que ela retornará o valor que ela retornar,
 definindo se o jogo continuará ou não*/
 short int restart(short int matrix[SIZE][SIZE], int status) {
     printInterface(matrix);
-    move(11, 0);
-    clrtoeol();
+    move(11, 0); /*Move o ponteiro para o começo da linha onde se encontram os controles*/
+    clrtoeol(); /*Apaga essa linha*/
 
     if (status == VITORIA) printw("Você venceu!\n");
     else printw("Você perdeu!\n");
