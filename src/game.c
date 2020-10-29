@@ -115,6 +115,7 @@ void novoJogo(short int matrix[SIZE][SIZE]) {
     getHighScore();
     adicionaNovoValor(matrix);
     adicionaNovoValor(matrix);
+    printInterface(matrix);
 }
 
 /*Pergunta se o jogador deseja encerrar o jogo iniciando um novo jogo caso
