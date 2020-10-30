@@ -33,7 +33,7 @@ ncurses
 
 # Compilação
 ```
-git clone https://github.com/C1-UFRJ-G2/2048.git
+git clone https://github.com/C1-UFRJ-G2/Trabalho-1-de-Comp-1-2020-PLE---2048 2048
 cd 2048
 make
 ```
