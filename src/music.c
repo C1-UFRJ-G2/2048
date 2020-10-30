@@ -12,12 +12,12 @@ int play(void) {
     if (test == NULL)
         return 1;
     else
-    fclose(test);
-    if (tocando == 3) {
-        char *plays[] = {"paplay theme1.ogg &", "paplay theme2.ogg &"};
-        tocando = rand() % 2;
-        system(plays[tocando]);
-    }
+        fclose(test);
+        if (tocando == 3) {
+            char *plays[] = {"paplay theme1.ogg &", "paplay theme2.ogg &"};
+            tocando = rand() % 2;
+            system(plays[tocando]);
+        }
     return 0;
 }
 
