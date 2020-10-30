@@ -53,11 +53,11 @@ int main(void) {
                 movimentos = paraDireita(matrix);
             break;
 
-            case KEY_HOME:
+            case 'm':
                 play();
             break;
 
-            case KEY_END:
+            case 'p':
                 stop();
             break;
 

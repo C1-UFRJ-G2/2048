@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "music.h"
 
@@ -5,12 +6,19 @@ static unsigned short int tocando = 3;
 
 /* Função para tocar a música, selecionando uma das duas
 * aleatoriamente */
-void play(void) {
+int play(void) {
+    FILE *test;
+    test = fopen("theme1.ogg", "r");
+    if (test == NULL)
+        return 1;
+    else
+    fclose(test);
     if (tocando == 3) {
         char *plays[] = {"paplay theme1.ogg &", "paplay theme2.ogg &"};
         tocando = rand() % 2;
         system(plays[tocando]);
     }
+    return 0;
 }
 
 /* Função para parar de tocar a música */
