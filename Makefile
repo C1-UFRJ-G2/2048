@@ -3,14 +3,17 @@ default: build
 build:
 	@$(CC) $(C_FLAGS) $(C_FILES) -o $(TARGET)
 
-run:
-	@[ -f $(TARGET) ] && ./$(TARGET) || echo "Realize o build do jogo primeiramente"
+run: build
+	@./$(TARGET)
 
 clean:
 	@[ -f $(TARGET) ] && rm $(TARGET) || exit
 
 build_objects: main.o music.o interface.o handle.o game.o controles.o
-	@$(CC) $(C_FLAGS) main.o music.o interface.o handle.o game.o controles.o -o $(TARGET)
+	@$(CC) $(C_FLAGS) $(OBJECTS) -o $(TARGET)
+
+clean_objects: build_objects
+	@rm $(OBJECTS) $(TARGET) || exit
 
 main.o:
 	@$(CC) -c src/main.c $(C_FLAGS)
@@ -47,3 +50,10 @@ C_FLAGS=-lncurses  \
         -Wall      \
         -ansi      \
         -pedantic
+
+OBJECTS=main.o 		\
+		music.o		\
+		interface.o \
+		handle.o	\
+		game.o		\
+		controles.o
