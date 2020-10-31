@@ -38,7 +38,7 @@ ncurses
 ```
 git clone https://github.com/C1-UFRJ-G2/Trabalho-1-de-Comp-1-2020-PLE---2048 2048
 cd 2048
-make ou gcc -lncurses -O2 -W -Wall -ansi -pedantic src/*.c -o 2048
+make ou gcc -lncurses -O2 -Wall -ansi -pedantic -Wno-unused-result src/*.c -o 2048
 ```
 
 # Execução
@@ -54,4 +54,4 @@ Caso você experiencie problemas com a sua interface, significa que seu OS não 
 
 ### Build
 
-Os gerenciadores de pacotes instalam a biblioteca ncurses de maneira inconstante, caso o makefile não seja capaz de acessar a biblioteca já instalada (veja [dependências](#dependências)), utilize o comando `gcc -lncurses -O2 -W -Wall -ansi -pedantic src/*.c -o 2048`.
+Os gerenciadores de pacotes instalam a biblioteca ncurses de maneira inconstante, caso o makefile não seja capaz de acessar a biblioteca já instalada (veja [dependências](#dependências)), utilize o comando `gcc -lncurses -O2 -Wall -ansi -pedantic -Wno-unused-result src/*.c -o 2048`.
