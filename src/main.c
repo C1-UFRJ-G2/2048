@@ -1,6 +1,6 @@
 /*
 * 2048
-* Autores: Eduardo, Jorge e Matheus;
+* Autores: Eduardo, Jorge e João Matheus;
 * DREs: 120047675, 120063312, 120023786;
 * Testado no GNU/Linux 5.9.1-arch1-1 e 4.19.101-2-lts;
 * Esse software é licenciado sob licença MIT.
