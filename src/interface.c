@@ -53,10 +53,8 @@ void printInterface(short int matrix[SIZE][SIZE]) {
             for (j = 0; j < SIZE; j++) {
                 printw("|%4.i", matrix[i][j]);
             }
-            printw("|\n");
-            if (i < SIZE - 1) printw("%s\n", div);
+            printw("|\n%s\n", div);
         }
-        printw("%s\n", div);
     }
 
     printw("Controles: WASD ou direcionais. 0 para sair");
