@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <locale.h>
+#include <time.h>
 #include "controles.h"
 #include "interface.h"
 #include "game.h"
@@ -21,6 +22,7 @@ int main(int argc, char *argv[]) {
     static short int matrix[SIZE][SIZE];
     short int controle, movimentos;
 
+    srand(time(NULL)); /*Adiciona uma seed vinculada ao tempo nos rand()'s*/
     setlocale(LC_ALL, ""); /* Para poder imprimir os caracteres acentuados corretamente */
 
     /* Impede que o jogo pare sem desativar a interface, desativando o comportamento
