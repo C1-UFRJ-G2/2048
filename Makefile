@@ -10,7 +10,7 @@ clean:
 	@[ -f $(TARGET) ] && rm $(TARGET) || exit
 
 build_objects: main.o music.o interface.o handle.o game.o controles.o
-	@$(CC) $(C_FLAGS) $(OBJECTS) -o $(TARGET)
+	@$(CC) $(C_FLAGS) *.o -o $(TARGET)
 
 clean_objects: build_objects
 	@rm *.o || exit
