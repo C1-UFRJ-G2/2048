@@ -17,7 +17,7 @@
 #include "handle.h"
 #include "music.h"
 
-int main(void) {
+int main(int argc, char *argv[]) {
     static short int matrix[SIZE][SIZE];
     short int controle, movimentos;
 
@@ -27,6 +27,9 @@ int main(void) {
     padrão do Ctrl + C e do Ctrl + Z*/
     signal(SIGINT, killHandle);
     signal(SIGTSTP, killHandle);
+
+    if (argc > 1) iniciaUnicode(argv[1]); /*Confere se o usuário adicionou 
+                                            a flag que desativa interface unicode*/
 
     novoJogo(matrix);
     verificaTamanhoDoTerminal();

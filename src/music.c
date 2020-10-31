@@ -18,7 +18,6 @@ void play(void) {
             system(plays[tocando]);
         }
     }
-    return 0;
 }
 
 /* Função para parar de tocar a música */
