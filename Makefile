@@ -1,7 +1,7 @@
 default: build
 
 build:
-	@$(CC) $(C_FLAGS) $(C_FILES) -o $(TARGET) && echo -e "Caso tenha erro com a interface, adicione a flag --no-unicode"
+	@$(CC) $(C_FLAGS) src/*.c -o $(TARGET) && echo -e "Caso tenha erro com a interface, adicione a flag --no-unicode"
 
 run: build
 	@./$(TARGET)
@@ -13,7 +13,7 @@ build_objects: main.o music.o interface.o handle.o game.o controles.o
 	@$(CC) $(C_FLAGS) $(OBJECTS) -o $(TARGET)
 
 clean_objects: build_objects
-	@rm $(OBJECTS) $(TARGET) || exit
+	@rm *.o || exit
 
 main.o:
 	@$(CC) -c src/main.c $(C_FLAGS)
@@ -37,23 +37,9 @@ TARGET=2048
 
 CC=gcc
 
-C_FILES=src/main.c      \
-		src/game.c      \
-		src/interface.c \
-		src/controles.c	\
-		src/handle.c \
-		src/music.c
-
 C_FLAGS=-lncurses  \
 		-O2		   \
         -W         \
         -Wall      \
         -ansi      \
         -pedantic
-
-OBJECTS=main.o 		\
-		music.o		\
-		interface.o \
-		handle.o	\
-		game.o		\
-		controles.o

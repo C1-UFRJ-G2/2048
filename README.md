@@ -10,6 +10,9 @@ Uma versão do jogo 2048 feita usando ncurses como projeto final da matéria Com
   - [Fedora](#fedora-e-derivados)
 - [Compilação](#compilação)
 - [Execução](#execução)
+- [Troubleshooting](#troubleshooting)
+  - [Interface](#interface)
+  - [Build](#build)
 
 # Como Jogar
 
@@ -35,10 +38,20 @@ ncurses
 ```
 git clone https://github.com/C1-UFRJ-G2/Trabalho-1-de-Comp-1-2020-PLE---2048 2048
 cd 2048
-make
+make ou gcc -lncurses -O2 -W -Wall -ansi -pedantic src/*.c -o 2048
 ```
 
 # Execução
 Tendo compilado
 
 `make run` ou `./2048`
+
+# Troubleshooting
+
+### Interface
+
+Caso você experiencie problemas com a sua interface, significa que seu OS não está preparado para receber caracteres unicode, quando executar o jogo utilize a flag "--no-unicode" e uma interface sem caracteres unicode será disponibilizada Ex: `./2048 --no-unicode`
+
+### Build
+
+Os gerenciadores de pacotes instalam a biblioteca ncurses de maneira inconstante, caso o makefile não seja capaz de acessar a biblioteca já instalada (veja [dependências](#dependências)), utilize o comando `gcc -lncurses -O2 -W -Wall -ansi -pedantic src/*.c -o 2048`.
