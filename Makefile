@@ -20,8 +20,8 @@ TARGET=2048
 CC=gcc
 
 C_FLAGS=-lncurses  \
-	-O2	   \
+		-O2        \
         -Wall      \
         -ansi      \
         -pedantic  \
-	-Wno-unused-result
+		-Wno-unused-result
